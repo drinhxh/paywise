@@ -1,0 +1,13 @@
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: black;
+}
+
+body{
+  background-color: #181818;
+}
+

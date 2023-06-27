@@ -1,0 +1,18 @@
+<!-- <app-moving-picture></app-moving-picture> -->
+<div class="text">
+  <p>#8ecae6 k qelt, #219ebc k mshelt, #023047 teget, #ffb703 verdhe, #fb8500 portokallt</p>
+
+  <div class="usr" *ngFor="let user of users">
+    <div>{{ user.firstName }}</div>
+    <div>{{ user.bankAccount.balance }}</div>
+    <div>{{ user.card.cardHolder }}</div>
+    <div>{{ user.card.cardNumber }}</div>
+    <div>{{ user.card.expiration }}</div>
+    <div>{{ user.card.securityCode }}</div>
+    <br><br>
+  </div>
+  <br><br>
+  <a routerLink="/home">Home</a>
+  <br><br>
+  <a routerLink="/card-info">Card Info</a>
+</div>

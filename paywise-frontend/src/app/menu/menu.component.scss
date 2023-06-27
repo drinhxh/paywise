@@ -1,0 +1,108 @@
+$tab-number: 5;
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap");
+$color1: #0f3057;
+$color2: #00587a;
+$color3: #8ecae6;
+$color4: #e7e7de;
+$color5: #d90429;
+
+:root {
+  background: $color1;
+  color: $color4;
+  font-family: "Comfortaa", "Century Gothic", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+  background-color: #023047;
+  font-family: 'Courier New', Courier, monospace;
+  color: #e7e7de;
+  // font-family: 'Poppins', sans-serif;
+  .static-item {
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+  }
+  .grow {
+    flex-grow: 1;
+  }
+  .item {
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    transition: 0.3s color, 0.1s background-color;
+    &::after {
+      transition: 0.3s transform, 0.1s left, 0.1s right;
+      content: "";
+      display: block;
+      position: absolute;
+      height: 3px;
+      bottom: 0;
+      left: 0; /* Change from '20px' to '0' */
+      right: 0; /* Change from '20px' to '0' */
+      border-bottom: 3px solid #ffb703;
+    }
+
+    &:hover {
+      background-color: lighten(#ffb703, 10%); /* #509724 gjelbert e dhezt, #39d05c gjelbert qelt (ma mire qikjo), #fdba31 e verdhe interesant kontrast*/
+    }
+
+    &:hover::after {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.invisible {
+  display: none;
+}
+
+.bar {
+  display: flex;
+  background: $color4;
+  padding: 5px;
+  img {
+    filter: invert(100%);
+    margin: 5px;
+  }
+}
+
+@for $cb from 1 through $tab-number {
+  @for $l from 1 through $tab-number {
+    input:nth-of-type(#{$cb}):checked ~ .nav .item:nth-of-type(#{$l}) {
+      @if $cb == $l {
+        color: $color3;
+      }
+      @if $cb != $l {
+        &::after {
+          $a: 100% * ($cb - $l);
+          $b: 40px * ($cb - $l);
+          transform: translateX(calc(#{$a} + #{$b}));
+        }
+      }
+    }
+  }
+}
+
+h2 {
+  color: #f6f5f5;
+  text-align: center;
+  margin: 5em;
+  a {
+    text-decoration: underline;
+    color: #0e918c;
+  }
+}

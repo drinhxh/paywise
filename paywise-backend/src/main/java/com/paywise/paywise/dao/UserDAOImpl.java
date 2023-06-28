@@ -32,8 +32,8 @@ public class UserDAOImpl implements UserDAO{
     user.addRole(newUserRole);
 
     // encode password before saving
-    String encodedPassword = Constants.BCRYPT + encodeBCryptEncode(user.getPassword());
-    user.setPassword(encodedPassword);
+//    String encodedPassword = Constants.BCRYPT + encodeBCryptEncode(user.getPassword());
+//    user.setPassword(encodedPassword);
 
     entityManager.persist(user);
     System.out.println("[CREATED USER] New user with id: " + user.getId());

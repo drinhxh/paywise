@@ -67,14 +67,14 @@ public class PaywiseApplication {
 	private void createUser(UserDAO userDAO, RolesDAO rolesDAO) {
 		User user = new User("Ja", "Morant", "fake thug", "test123");
 
-		String encodedPassword = Constants.BCRYPT + userDAO.encodeBCryptEncode(user.getPassword());
+//		String encodedPassword = Constants.BCRYPT + userDAO.encodeBCryptEncode(user.getPassword());
 
 		BankAccount bankAccount = new BankAccount("AT52 8888", 700.00);
 		Card card = new Card("123 1234", "jamorant", "01/24", "111");
 		user.setBankAccount(bankAccount);
 		user.setCard(card);
-		user.setPassword(encodedPassword);
-		System.out.println("ENCODED PASSWORD: " + encodedPassword);
+		user.setPassword("test123");
+//		System.out.println("ENCODED PASSWORD: " + encodedPassword);
 
 		userDAO.saveUser(user);
 		System.out.println("Created user with id -> " + user.getId());

@@ -23,21 +23,51 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // onSubmit() {
+  //   if (this.loginForm.valid) {
+  //     const username = this.loginForm.value.username;
+  //     const password = this.loginForm.value.password;
+  
+  //     this.userService.login(username, password).subscribe(
+  //       (response) => {
+  //         this.router.navigate(['/user-profile']);
+  //       },
+  //       (error: HttpErrorResponse) => {
+  //         alert(error.message);
+  //       }
+  //     );
+  //   }
+  // }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
-  
-      this.userService.login(username, password).subscribe(
-        (response) => {
-          this.router.navigate(['/user-profile']);
+      console.log(username);
+      console.log(password);
+      // Check if the username exists and verify the password
+      this.userService.getUserByUsername(username).subscribe(
+        (user: User) => {
+          if (user) {
+            console.log("response passed");
+            if (user.password === password) {
+              // Username and password are correct
+              this.router.navigate(['/user-profile']);
+            } else {
+              // Password is incorrect
+              alert('Invalid password');
+            }
+          } else {
+            // Username does not exist
+            alert('Invalid username');
+          }
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
         }
       );
     }
-  }
+  }  
 }
 
 

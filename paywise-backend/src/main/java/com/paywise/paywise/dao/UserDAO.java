@@ -12,6 +12,7 @@ public interface UserDAO{
   User updateUser(User user);
   List<User> getAllUsers();
   User findUserById(Integer id);
+  User findUserByUsername(String username);
   void deleteUserById(Integer id);
   void updateUserBalance(int id, double balance);
   void updateSenderFundTransfer(int id, FundTransfer fundTransfer);

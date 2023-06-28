@@ -1,22 +1,26 @@
 <app-moving-backround></app-moving-backround>
 <div class="login-box">
   <h2>Login</h2>
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" formControlName="username" required>
       <label>Username</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" required="">
+      <input type="password" formControlName="password" required>
       <label>Password</label>
     </div>
-    <a routerLink="/user-profile" id="lgn">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      LOG IN
-    </a>
-    <div routerLink="/sign-up" class="sign">Sign Up</div> <!-- SIGN UP ON LOGIN FORM -->
+    <div id="button-container">
+      <button type="submit"  class="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        LOG IN
+      </button>
+    </div>
+      <div routerLink="/sign-up" class="sign">Sign Up</div> 
   </form>
 </div>
+
+

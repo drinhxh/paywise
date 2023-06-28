@@ -55,11 +55,16 @@ public class PaywiseApplication {
 //			queryForFundTransfers(fundTransferDAO);
 //			updateUser(userDAO);
 //			addUserRole(userDAO, rolesDAO);
+//			findUserByUsername(userDAO);
 		};
 	}
 
-	private void createUser(UserDAO userDAO, RolesDAO rolesDAO) {
+	public void findUserByUsername(UserDAO userDAO){
+		String username = "fake thug";
+		User user = userDAO.findUserByUsername(username);
+	}
 
+	private void createUser(UserDAO userDAO, RolesDAO rolesDAO) {
 		User user = new User("Ja", "Morant", "fake thug", "test123");
 
 		String encodedPassword = Constants.BCRYPT + userDAO.encodeBCryptEncode(user.getPassword());
@@ -73,7 +78,7 @@ public class PaywiseApplication {
 
 		userDAO.saveUser(user);
 		System.out.println("Created user with id -> " + user.getId());
-		addUserRole(userDAO, rolesDAO, user.getId());
+//		addUserRole(userDAO, rolesDAO, user.getId());
 
 		User user2 = new User("drin", "baba", "baba", "test123");
 		BankAccount bankAccount2 = new BankAccount("AT52 2222", 800.00);
@@ -83,7 +88,7 @@ public class PaywiseApplication {
 		user2.setCard(card2);
 		userDAO.saveUser(user2);
 		System.out.println("Created user with id -> " + user2.getId());
-		addUserRole(userDAO, rolesDAO, user2.getId());
+//		addUserRole(userDAO, rolesDAO, user2.getId());
 
 		User user3 = new User("lebron", "james", "kingjames", "test123");
 		BankAccount bankAccount3 = new BankAccount("AT52 3333", 700.00);
@@ -94,7 +99,7 @@ public class PaywiseApplication {
 		System.out.println("Created user with id -> " + user3.getId());
 
 		addUserAdminRole(userDAO, rolesDAO, user3.getId());
-		addUserRole(userDAO, rolesDAO, user3.getId());
+//		addUserRole(userDAO, rolesDAO, user3.getId());
 	}
 
 	public void addUserAdminRole(UserDAO userDAO, RolesDAO rolesDAO, int userId){

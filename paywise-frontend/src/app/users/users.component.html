@@ -5,12 +5,18 @@
   <div class="usr" *ngFor="let user of users">
     <div>{{ user.firstName }}</div>
     <div>{{ user.bankAccount.balance }}</div>
-    <div>{{ user.card.cardHolder }}</div>
-    <div>{{ user.card.cardNumber }}</div>
-    <div>{{ user.card.expiration }}</div>
-    <div>{{ user.card.securityCode }}</div>
+    <div>{{ user.username}}</div>
+
     <br><br>
   </div>
+  
+  <div *ngIf="userByUsername">
+    <!-- <div>========================</div> -->
+    <div>{{userByUsername.firstName}}</div>
+    <div>{{userByUsername.lastName}}</div>
+    <div>{{userByUsername.bankAccount.balance}}</div>
+  </div>
+  
   <br><br>
   <a routerLink="/home">Home</a>
   <br><br>

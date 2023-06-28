@@ -20,18 +20,6 @@ export class AppComponent implements OnInit{
     this.getUsers();
   }
 
-  //=============================================================
-  // ngAfterViewInit() {
-  //   jarallax(document.querySelectorAll('.jarallax'), {
-  //     speed: 0.2
-  //   });
-  // }
-  //=============================================================
-
-  // THIS IS FOR APP ROUTING WITHOUT PRINTING IT TWICE
-  // isActive(path: string): boolean {
-  //   return this.router.url === path;
-  // }
 
   public getUsers(): void {
     this.userService.getUsers().subscribe(

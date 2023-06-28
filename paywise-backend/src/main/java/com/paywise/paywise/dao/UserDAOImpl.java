@@ -78,6 +78,26 @@ public class UserDAOImpl implements UserDAO{
   }
 
   @Override
+  public User findUserByUsername(String username) {
+    String queryString = "SELECT u FROM User u WHERE u.username = :username";
+    TypedQuery<User> query = entityManager.createQuery(queryString, User.class);
+    query.setParameter("username", username);
+
+    List<User> users = query.getResultList();
+
+    if(users.isEmpty()){
+      throw new UserNotFoundException("User with USERNAME: " + username + " was not found!");
+    }
+
+    User foundUser = users.get(0);
+
+    System.out.println("[FOUND USER] User found with USERNAME: " + foundUser.getUsername());
+    System.out.println("[FOUND USER] User: " + foundUser);
+
+    return foundUser;
+  }
+
+  @Override
   @Transactional
   public void deleteUserById(Integer id) {
     User userToDelete = entityManager.find(User.class, id);

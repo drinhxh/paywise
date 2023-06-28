@@ -25,7 +25,6 @@ public class UserSecurityConfig {
     );
 
     // Getting roles from DB
-    // Authorities == Roles (custom DB access)
     jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
             "SELECT user_name, CONCAT('ROLE_', role) FROM user INNER JOIN roles ON user.id = roles.user_id WHERE user_name = ?"
     );
@@ -39,12 +38,15 @@ public class UserSecurityConfig {
   public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
     httpSecurity.authorizeHttpRequests(configurer ->
             configurer
-                    .requestMatchers(HttpMethod.GET, "/home/hello").permitAll()
+//                    .requestMatchers(HttpMethod.GET, "/home/hello").permitAll()
                     .requestMatchers(HttpMethod.GET, "/home/users").permitAll() // TODO : hasRole(Constants.SIMPLE_USER) // SIMPLE_USER = "USER"
-                    .requestMatchers(HttpMethod.GET, "/home/users/**").hasRole(Constants.SIMPLE_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add").hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.GET, "/home/users/**").permitAll() //hasRole(Constants.SIMPLE_USER) /// TODO HERE WAS THE FUCKING MUTHERFUCKING PROBLEMMMMMMMMMMMMMMMM
+                    .requestMatchers(HttpMethod.POST, "/home/add").permitAll() // hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.POST, "/home/login").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/home/users/find/**").hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.POST, "/home/add").hasRole(Constants.ADMIN_USER)
                     .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.ADMIN_USER)
+                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.DELETE, "/home/delete/**").hasRole(Constants.ADMIN_USER)
                     .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.ADMIN_USER)
     );

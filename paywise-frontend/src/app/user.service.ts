@@ -31,7 +31,17 @@ export class UserService {
   }
 
   public getUserById(userId: number): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/home/users/find/${userId}`);
+    return this.http.get<User>(`${this.apiServerUrl}/home/users/user/${userId}`);
+  }
+
+  public getUserByUsername(username: string): Observable<User>{
+    return this.http.get<User>(`${this.apiServerUrl}/home/users/find/${username}`)
+  }
+
+  // PASSWORD MATCHER BCRYPT AND {noop}
+  public login(username: string, password: string): Observable<any> {
+    const user = { username, password };
+    return this.http.post<any>(`${this.apiServerUrl}/home/login`, user);
   }
 
 }

@@ -12,13 +12,14 @@ export class UsersComponent implements OnInit {
 
   public users: User[] = [];
   public userByUsername: User | undefined;
+  public userByUserId: User | undefined;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUsers();
-    this.getUserByUsername('davis'); 
-    // this.getUserById(2);
+    this.getUserByUsername('blackmamba'); 
+    this.getUserById(3);
   }
 
   public getUsers(): void {
@@ -33,7 +34,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
-    public getUserByUsername(username: string): void {
+  public getUserByUsername(username: string): void {
     this.userService.getUserByUsername(username).subscribe(
       (response: User) => {
         this.userByUsername = response;
@@ -46,16 +47,16 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  // public getUserById(userId: number): void {
-  //   this.userService.getUserById(userId).subscribe(
-  //     (response2: User) => {
-  //       this.userByUsername = response2;
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
+  public getUserById(userId: number): void {
+    this.userService.getUserById(userId).subscribe(
+      (response: User) => {
+        this.userByUserId = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
 
 

@@ -39,9 +39,9 @@ export class UserService {
   }
 
   // PASSWORD MATCHER BCRYPT AND {noop}
-  public login(username: string, password: string): Observable<any> {
+  public login(username: string, password: string): Observable<User> {
     const user = { username, password };
-    return this.http.post<any>(`${this.apiServerUrl}/home/login`, user);
+    return this.http.post<User>(`${this.apiServerUrl}/home/login`, user);
   }
 
 }

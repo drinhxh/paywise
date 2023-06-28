@@ -18,31 +18,31 @@ public class UserController {
   public UserController(UserDAO userDAO) {
     this.userDAO = userDAO;
   }
-//
-//  @PostMapping("/login")
-//  public ResponseEntity<?> loginUser(@RequestBody User user) {
-//    String enteredPassword = user.getPassword();
-//
-//    // Retrieve the user from the database based on the username
-//    User retrievedUser = userDAO.findUserByUsername(user.getUsername());
-//
-//    if (retrievedUser != null) {
-//      // Compare the entered password with the bcrypt-encrypted password
-//      BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//      boolean passwordsMatch = passwordEncoder.matches(enteredPassword, retrievedUser.getPassword());
-//
-//      if (passwordsMatch) {
-//        // Passwords match, login is successful
-//        return new ResponseEntity<>(HttpStatus.OK);
-//      } else {
-//        // Password is incorrect
-//        return new ResponseEntity<>("Invalid password", HttpStatus.UNAUTHORIZED);
-//      }
-//    } else {
-//      // User not found
-//      return new ResponseEntity<>("Invalid username", HttpStatus.NOT_FOUND);
-//    }
-//  }
+
+  @PostMapping("/users/login")
+  public ResponseEntity<User> loginUser(@RequestBody User user) {
+    String enteredPassword = user.getPassword();
+
+    // Retrieve the user from the database based on the username
+    User retrievedUser = userDAO.findUserByUsername(user.getUsername());
+
+    if (retrievedUser != null) {
+      // Compare the entered password with the bcrypt-encrypted password
+      BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+      boolean passwordsMatch = passwordEncoder.matches(enteredPassword, retrievedUser.getPassword());
+
+      if (passwordsMatch) {
+        // Passwords match, login is successful
+        return new ResponseEntity<>(HttpStatus.OK);
+      } else {
+        // Password is incorrect
+        return new ResponseEntity<>(retrievedUser, HttpStatus.UNAUTHORIZED);
+      }
+    } else {
+      // User not found
+      return new ResponseEntity<>(retrievedUser, HttpStatus.NOT_FOUND);
+    }
+  }
 
   @PostMapping("/add")
   public ResponseEntity<User> addUser(@RequestBody User user){

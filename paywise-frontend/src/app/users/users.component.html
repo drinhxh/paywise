@@ -16,6 +16,13 @@
     <div>{{userByUsername.lastName}}</div>
     <div>{{userByUsername.bankAccount.balance}}</div>
   </div>
+
+  <div *ngIf="userByUserId">
+    <!-- <div>========================</div> -->
+    <div>{{userByUserId.firstName}}</div>
+    <div>{{userByUserId.lastName}}</div>
+    <div>{{userByUserId.bankAccount.balance}}</div>
+  </div>
   
   <br><br>
   <a routerLink="/home">Home</a>

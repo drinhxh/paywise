@@ -33,7 +33,7 @@ public class UserController {
 
       if (passwordsMatch) {
         // Passwords match, login is successful
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(retrievedUser, HttpStatus.OK);
       } else {
         // Password is incorrect
         return new ResponseEntity<>(retrievedUser, HttpStatus.UNAUTHORIZED);

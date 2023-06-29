@@ -39,17 +39,20 @@ public class UserSecurityConfig {
     httpSecurity.authorizeHttpRequests(configurer ->
             configurer
 //                    .requestMatchers(HttpMethod.GET, "/home/hello").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/home/users").permitAll() // TODO : hasRole(Constants.SIMPLE_USER) // SIMPLE_USER = "USER"
+                    .requestMatchers(HttpMethod.GET, "/home/users").permitAll() // TODO : hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.GET, "/home/users/**").permitAll() //hasRole(Constants.SIMPLE_USER) /// TODO HERE WAS THE FUCKING MUTHERFUCKING PROBLEMMMMMMMMMMMMMMMM
-                    .requestMatchers(HttpMethod.POST, "/home/**").permitAll() // hasRole(Constants.SIMPLE_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add").permitAll() // hasRole(Constants.SIMPLE_USER)
-//                    .requestMatchers(HttpMethod.POST, "/home/login/**").hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.POST, "/home/**").permitAll() //hasRole(Constants.SIMPLE_USER)
+//                    .requestMatchers(HttpMethod.POST, "/home/add").permitAll() // hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.GET, "/home/login").hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.GET, "/home/login").hasRole(Constants.ADMIN_USER)
                     .requestMatchers(HttpMethod.GET, "/home/users/find/**").permitAll() //hasRole(Constants.SIMPLE_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add").permitAll() // hasRole(Constants.ADMIN_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add/**").permitAll() // hasRole(Constants.ADMIN_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add/**").permitAll() //hasRole(Constants.SIMPLE_USER)
-                    .requestMatchers(HttpMethod.DELETE, "/home/delete/**").permitAll()  //hasRole(Constants.ADMIN_USER)
-                    .requestMatchers(HttpMethod.PUT, "/home/update").permitAll()  //hasRole(Constants.ADMIN_USER)
+//                    .requestMatchers(HttpMethod.POST, "/home/add").hasRole(Constants.ADMIN_USER)
+//                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.ADMIN_USER)
+                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.DELETE, "/home/delete/**").hasRole(Constants.ADMIN_USER)
+                    .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.SIMPLE_USER)
+                    .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.ADMIN_USER)
+                    .requestMatchers(HttpMethod.GET, "/home/login").permitAll()
     );
 
     httpSecurity.httpBasic(Customizer.withDefaults());

@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
         (user: User) => {
           if (user) {
             console.log("response passed");
-            if (user.password === password) {
+            const shortPassword = user.password.substring(6);
+            if (shortPassword === password) {
               // Username and password are correct
               this.router.navigate(['/user-profile']);
             } else {

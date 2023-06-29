@@ -35,6 +35,9 @@ public class UserDAOImpl implements UserDAO{
 //    String encodedPassword = Constants.BCRYPT + encodeBCryptEncode(user.getPassword());
 //    user.setPassword(encodedPassword);
 
+    String noopPassword = "{noop}" + user.getPassword();
+    user.setPassword(noopPassword);
+
     entityManager.persist(user);
     System.out.println("[CREATED USER] New user with id: " + user.getId());
     System.out.println("[CREATED USER] User: " + user);

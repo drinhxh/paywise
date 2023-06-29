@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.getUserByUsername('baba'); 
+    this.getUserByUsername('davis'); 
     this.getUserById(3);
   }
 

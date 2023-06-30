@@ -1,1 +1,25 @@
-<p>user-profile works!</p>
+<div *ngIf="user">
+  <p>First Name: {{ user.firstName }}</p>
+  <p>Last Name: {{ user.lastName }}</p>
+  <p>Bank Account Balance: {{ user.bankAccount.balance }}</p>
+  <p>Username: {{ user.username }}</p>
+  <p>Sent Fund Transfers:</p>
+  <ul>
+    
+    <li *ngFor="let fundTransfer of senderFundTransfers">
+      Amount: {{ fundTransfer?.amount }}, Receiver: {{ fundTransfer.user_receiver }}
+    </li>
+  </ul>
+  <p>Received Fund Transfers:</p>
+  <ul>
+    <li *ngFor="let fundTransfer of receiverFundTransfers">
+      Amount: {{ fundTransfer?.amount }}, Sender: {{ fundTransfer.user_receiver.firstName }}
+    </li>
+  </ul>
+  <ul>
+    GETTING SENDER INFO
+    <li *ngFor="let sender of senderUsers">
+      Sent: {{sender.firstName}}, Sent Username: {{sender.username}}
+    </li>
+  </ul>
+</div>

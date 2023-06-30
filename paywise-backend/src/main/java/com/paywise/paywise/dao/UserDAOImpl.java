@@ -167,6 +167,40 @@ public class UserDAOImpl implements UserDAO{
     System.out.println("[PASSWORD ENCODED] User password encoded BCRYPT.");
     return bCryptPasswordEncoder.encode(password);
   }
+
+  @Override
+  public List<FundTransfer> getSenderFundTransfers(Integer id) {
+    User user = entityManager.find(User.class, id);
+
+    return user.getSenderFundTransfers();
+  }
+
+  @Override
+  public List<FundTransfer> getReceiverFundTransfers(Integer id) {
+    User user = entityManager.find(User.class, id);
+
+    return user.getReceiverFundTransfers();
+  }
+
+  @Override
+  public User getUserByBankAccount(String bankAcc) {
+    String queryString = "SELECT u FROM User u WHERE u.bankAccount.accountNumber = :bankAcc";
+    TypedQuery<User> query = entityManager.createQuery(queryString, User.class);
+    query.setParameter("bankAcc", bankAcc);
+
+    List<User> users = query.getResultList();
+
+    if(users.isEmpty()){
+      throw new UserNotFoundException("User with USERNAME: " + bankAcc + " was not found!");
+    }
+
+    User foundUser = users.get(0);
+
+    System.out.println("[FOUND USER] User found with USERNAME: " + foundUser.getUsername());
+    System.out.println("[FOUND USER] User: " + foundUser);
+
+    return foundUser;
+  }
 }
 
 

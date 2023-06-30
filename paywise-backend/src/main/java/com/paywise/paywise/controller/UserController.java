@@ -1,11 +1,13 @@
 package com.paywise.paywise.controller;
 
 import com.paywise.paywise.dao.UserDAO;
+import com.paywise.paywise.entity.FundTransfer;
 import com.paywise.paywise.entity.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -19,7 +21,40 @@ public class UserController {
     this.userDAO = userDAO;
   }
 
-  @PostMapping("/users/login")
+  @GetMapping("/users/sender/{id}")
+  public ResponseEntity<List<FundTransfer>> getSenderFundTransfers(@PathVariable("id") Integer id) {
+    List<FundTransfer> senderTransfers = userDAO.getSenderFundTransfers(id);
+
+    if (senderTransfers.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    return new ResponseEntity<>(senderTransfers, HttpStatus.OK);
+  }
+
+  @GetMapping("/users/bank/acc/find/{bankAcc}")
+  public ResponseEntity<User> getUserByBankAccount(@PathVariable("bankAcc") String bankAcc){
+    User userByBankAcc = userDAO.getUserByBankAccount(bankAcc);
+
+    if (userByBankAcc == null){
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    return new ResponseEntity<>(userByBankAcc, HttpStatus.OK);
+  }
+
+  @GetMapping("/users/receiver/{id}")
+  public ResponseEntity<List<FundTransfer>> getReceiverFundTransfers(@PathVariable("id") Integer id) {
+    List<FundTransfer> receiverTransfers = userDAO.getReceiverFundTransfers(id);
+
+    if (receiverTransfers.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    return new ResponseEntity<>(receiverTransfers, HttpStatus.OK);
+  }
+
+  @PostMapping("/users/login") // TODO : not working, keep getting 403 even though did .permitAll() on security
   public ResponseEntity<User> loginUser(@RequestBody User user) {
     String enteredPassword = user.getPassword();
 

@@ -127,8 +127,8 @@ public class PaywiseApplication {
 	}
 
 	public void transferFunds(UserDAO userDAO, FundTransferDAO fundTransferDAO){
-		int senderId = 2;
-		int receiverId = 1;
+		int senderId = 4;
+		int receiverId = 2;
 		double amount = 200.00;
 		User sender = userDAO.findUserById(senderId);
 		User receiver = userDAO.findUserById(receiverId);
@@ -162,7 +162,7 @@ public class PaywiseApplication {
 	}
 
 	private void getSenderTransferFund(UserDAO userDAO, FundTransferDAO fundTransferDAO) {
-		int userId = 1;
+		int userId = 2;
 		User user = userDAO.findUserById(userId);
 		List<FundTransfer> senderFunds = user.getSenderFundTransfers();
 		List<FundTransfer> receiverFunds = user.getReceiverFundTransfers();

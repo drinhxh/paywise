@@ -53,6 +53,9 @@ public class UserSecurityConfig {
                     .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.ADMIN_USER)
                     .requestMatchers(HttpMethod.GET, "/home/login").permitAll()
+                    .requestMatchers(HttpMethod.GET, "home/users/sender/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "home/users/receiver/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "home/users/bank/acc/find/**").permitAll()
     );
 
     httpSecurity.httpBasic(Customizer.withDefaults());

@@ -28,4 +28,7 @@ public interface UserDAO{
   // ENCRYPTION
   String encodeBCryptEncode(String password);
 
+  List<FundTransfer> getSenderFundTransfers(Integer id);
+  List<FundTransfer> getReceiverFundTransfers(Integer id);
+  User getUserByBankAccount(String bankAcc);
 }

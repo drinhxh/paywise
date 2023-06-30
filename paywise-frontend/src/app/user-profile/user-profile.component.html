@@ -1,4 +1,5 @@
 <div *ngIf="user">
+  THIS IS CURRENT USER
   <p>First Name: {{ user.firstName }}</p>
   <p>Last Name: {{ user.lastName }}</p>
   <p>Bank Account Balance: {{ user.bankAccount.balance }}</p>
@@ -6,20 +7,39 @@
   <p>Sent Fund Transfers:</p>
   <ul>
     
-    <li *ngFor="let fundTransfer of senderFundTransfers">
-      Amount: {{ fundTransfer?.amount }}, Receiver: {{ fundTransfer.user_receiver }}
-    </li>
-  </ul>
-  <p>Received Fund Transfers:</p>
   <ul>
-    <li *ngFor="let fundTransfer of receiverFundTransfers">
-      Amount: {{ fundTransfer?.amount }}, Sender: {{ fundTransfer.user_receiver.firstName }}
-    </li>
-  </ul>
-  <ul>
-    GETTING SENDER INFO
+    {{user.firstName}} sent money TO THESE PEOPLE
     <li *ngFor="let sender of senderUsers">
-      Sent: {{sender.firstName}}, Sent Username: {{sender.username}}
+      Sent to NAME: {{ sender.firstName }}, Username: {{ sender.username }}, Bank Account to: {{sender.bankAccount.accountNumber}}
     </li>
   </ul>
-</div>
+  <ul>
+    {{user.firstName}} got money FROM THESE PEOPLE
+    <li *ngFor="let receiver of receiverUsers">
+      Received from: {{ receiver.firstName }}, Username: {{ receiver.username }}, Bank Account {{receiver.bankAccount.accountNumber}} 
+    </li>
+  </ul>
+<!-- 
+  <ul *ngIf="senderUsers.length > 0">
+    SENDER
+    <li *ngFor="let sender of senderUsers">
+      Sent: {{ sender.firstName }}, Sent Username: {{ sender.username }}
+    </li>
+  </ul>
+  
+  <div *ngIf="senderUsers.length === 0">
+    Loading sender users...
+  </div>
+  
+  <ul *ngIf="receiverUsers.length > 0">
+    RECEIVER
+    <li *ngFor="let receiver of receiverUsers">
+      Received: {{ receiver.firstName }}, Receiver Username: {{ receiver.username }}
+    </li>
+  </ul>
+  
+  <div *ngIf="receiverUsers.length === 0">
+    Loading receiver users...
+  </div> -->
+<!-- </div> -->
+

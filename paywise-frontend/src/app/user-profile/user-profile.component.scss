@@ -367,7 +367,8 @@ a {
 	@media (max-width: 500px) {
 		// grid-template-columns: repeat(1, 1fr);
 	}
-  margin-left: 10px;
+  margin-left: 1rem;
+
 }
 
 .tile {
@@ -376,6 +377,7 @@ a {
 	background-color: var(--c-olive-500);
 	color: var(--c-gray-900);
 	min-height: 200px;
+	min-width: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

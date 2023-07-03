@@ -41,20 +41,8 @@
 				</span>
 			</button>
 			<div class="app-header-actions-buttons">
-				<!-- <button class="icon-button large">
-					<i class="ph-magnifying-glass"></i>
-				</button> -->
-				<!-- <button class="icon-button large">
-					<i class="ph-bell"></i>
-				</button> -->
 			</div>
 		</div>
-		<!-- <div class="app-header-mobile">
-			<button class="icon-button large">
-				<i class="ph-list"></i>
-			</button>
-		</div> -->
-
 	</header>
 	<div class="app-body">
 		<div class="app-body-navigation">
@@ -130,36 +118,6 @@
 							</span>
 						</a>
 					</article>
-					<!-- <article class="tile" id="tile-header">
-						<div class="tile-header">
-							<i class="ph-fire-simple-light"></i>
-							<h3>
-								<span>Heating Gas</span>
-								<span>Gazprom UA</span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="ph-caret-right-bold"></i>
-							</span>
-						</a>
-					</article>
-					<article class="tile" id="tile-header">
-						<div class="tile-header">
-							<i class="ph-file-light"></i>
-							<h3>
-								<span>Tax online</span>
-								<span>Kharkov 62 str.</span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="ph-caret-right-bold"></i>
-							</span>
-						</a>
-					</article> -->
 				</div>
 				<div class="service-section-footer">
 					<p>Services are paid according to the current state of the currency and tariff.</p>
@@ -169,13 +127,6 @@
 				<div class="transfer-section-header">
 					<h2>Last Money Received</h2>
 					<div class="filter-options">
-						<!-- <p>Filter selected: more than 100 $</p> -->
-						<!-- <button class="icon-button">
-							<i class="ph-funnel"></i>
-						</button>
-						<button class="icon-button">
-							<i class="ph-plus"></i>
-						</button> -->
 					</div>
 				</div>
 				<div class="transfers" *ngFor="let receiverFund of receiverFundTransfers; let i = index">
@@ -190,7 +141,6 @@
 							</div>
 							<div>
 								<dt>{{receiverUsers[i].bankAccount.accountNumber}}</dt>
-								<!-- <dt>{{receiverFund.user_sender.bankAccount.accountNumber}}</dt> -->
 								<dd>Last four digits</dd>
 							</div>
 							<div>
@@ -207,13 +157,6 @@
         <div class="transfer-section-header">
 					<h2>Last Money Sent</h2>
 					<div class="filter-options">
-						<!-- <p>Filter selected: more than 100 $</p> -->
-						<!-- <button class="icon-button">
-							<i class="ph-funnel"></i>
-						</button> -->
-						<!-- <button class="icon-button">
-							<i class="ph-plus"></i>
-						</button> -->
 					</div>
 				</div>
         <div class="transfers" *ngFor="let senderFund of senderFundTransfers; let i = index">
@@ -272,16 +215,12 @@
 						<div class="card green" id="yellow-card">
 							<span>01/22</span>
 							<span>
-								<!-- •••• 4012 -->
                 {{user?.bankAccount?.accountNumber}}
 							</span>
 						</div>
 						<div class="payment-details">
 							<div>
 								<span>$ {{ user?.bankAccount?.balance }}</span>
-								<!-- <button class="icon-button">
-									<i class="ph-caret-right-bold"></i>
-								</button> -->
 							</div>
 						</div>
 					</div>

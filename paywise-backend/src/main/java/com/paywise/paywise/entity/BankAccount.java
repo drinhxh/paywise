@@ -13,6 +13,8 @@ public class BankAccount {
 
   @Column(name = "account_number")
   private String accountNumber;
+  @Column(name = "bank_name")
+  private String bankName;
 
   @Column(name = "balance")
   private Double balance;
@@ -26,11 +28,11 @@ public class BankAccount {
 
   }
 
-  public BankAccount(String accountNumber, Double balance) {
+  public BankAccount(String accountNumber, String bankName, Double balance) {
     this.accountNumber = accountNumber;
+    this.bankName = bankName;
     this.balance = balance;
   }
-
 
   public Integer getId() {
     return id;
@@ -46,6 +48,14 @@ public class BankAccount {
 
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+  }
+
+  public String getBankName() {
+    return bankName;
+  }
+
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
   }
 
   public Double getBalance() {

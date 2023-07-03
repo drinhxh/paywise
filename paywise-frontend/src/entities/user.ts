@@ -9,9 +9,9 @@ export interface User {
   lastName: string;
   username: string;
   password: string;
-  bankAccount: BankAccount; // Add the BankAccount type
-  card: Card; // Add the Card type
-  senderFundTransfers: FundTransfer[]; // Add the FundTransfer array type
-  receiverFundTransfers: FundTransfer[]; // Add the FundTransfer array type
-  roles: Roles[]; // Add the Roles array type
+  bankAccount: BankAccount;
+  card: Card;
+  senderFundTransfers: FundTransfer[];
+  receiverFundTransfers: FundTransfer[];
+  roles: Roles[];
 }

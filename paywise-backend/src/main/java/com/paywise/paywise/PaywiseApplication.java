@@ -69,7 +69,7 @@ public class PaywiseApplication {
 
 		String encodedPassword = Constants.BCRYPT + userDAO.encodeBCryptEncode(user.getPassword());
 
-		BankAccount bankAccount = new BankAccount("AT52 8888", 700.00);
+		BankAccount bankAccount = new BankAccount("AT52 8888", "Sparkasse", 700.00);
 		Card card = new Card("123 1234", "jamorant", "01/24", "111");
 		user.setBankAccount(bankAccount);
 		user.setCard(card);
@@ -81,7 +81,7 @@ public class PaywiseApplication {
 //		addUserRole(userDAO, rolesDAO, user.getId());
 
 		User user2 = new User("drin", "baba", "baba", "test123");
-		BankAccount bankAccount2 = new BankAccount("AT52 2222", 800.00);
+		BankAccount bankAccount2 = new BankAccount("AT52 2222", "Procredit", 800.00);
 		Card card2 = new Card("123 1234", "baba", "02/24", "222");
 
 		user2.setBankAccount(bankAccount2);
@@ -91,7 +91,7 @@ public class PaywiseApplication {
 //		addUserRole(userDAO, rolesDAO, user2.getId());
 
 		User user3 = new User("lebron", "james", "kingjames", "test123");
-		BankAccount bankAccount3 = new BankAccount("AT52 3333", 700.00);
+		BankAccount bankAccount3 = new BankAccount("AT52 3333", "Reifeissen Bank", 700.00);
 		Card card3 = new Card("123 1234", "james", "03/24", "333");
 		user3.setBankAccount(bankAccount3);
 		user3.setCard(card3);
@@ -127,9 +127,9 @@ public class PaywiseApplication {
 	}
 
 	public void transferFunds(UserDAO userDAO, FundTransferDAO fundTransferDAO){
-		int senderId = 4;
-		int receiverId = 3;
-		double amount = 70.00;
+		int senderId = 5;
+		int receiverId = 1;
+		double amount = 18.00;
 		User sender = userDAO.findUserById(senderId);
 		User receiver = userDAO.findUserById(receiverId);
 

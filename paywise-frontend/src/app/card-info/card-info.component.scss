@@ -1,0 +1,243 @@
+
+$body: #629eff;
+
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: $body;
+	transition: all 0.3s;
+}
+
+.wrap{
+	width:600px;
+	height:600px;
+	@include centerer;
+	perspective: 1000px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.holo{
+	overflow:hidden;
+	position: absolute;
+	right:35px;
+	width: 90px;
+	height: 60px;
+	border-radius:8px;
+	background: linear-gradient(135deg, #e59f2d 0%,#ffea30 25%,#ff8528 71%,#ffdd89 100%); 
+}
+
+.line{
+	margin:-20px;
+	width:90px;
+	height:50px;
+	border:2px solid #ff8528;
+	border-radius:4px;
+	&:nth-child(2){
+		margin:-40px;
+	}
+	&:nth-child(3){
+		margin: 10px 20px;
+	}
+}
+
+.face{
+	position:relative;
+	z-index:1;
+	box-sizing: border-box;
+	width: 550px;
+	height: 320px;
+	border-radius: 15px;
+	background: white;
+	padding: 35px 30px;
+	transform: rotateY(-15deg);
+	img{
+		display: block;
+		width: 100px;
+	}
+	&:hover{
+		transform: rotateY(0deg);
+	}
+	transition: all 0.3s;
+}
+
+
+#number{
+	margin: 90px 0 40px;
+	position:relative;
+	display:inline-block;
+	&:before{
+		position:absolute;
+		font-size: 10px;
+		top: -20px;
+		content: "card number";
+	}
+	input{
+		font-size: 30px;
+		width: 90px;
+		outline: none;
+		border:none;
+	}
+  width: 100%;
+}
+
+
+#holder{
+	position: relative;
+	display:block;
+	&:before{
+		position:absolute;
+		font-size: 10px;
+		top: -20px;
+		// content: "cardholder";
+	}
+	input{
+		font-size: 26px;
+		width: 260px;
+		outline: none;
+		border:none;
+		float: left;
+		margin-right: 16px;
+		text-transform: uppercase;
+	}
+}
+
+#date{
+	position: relative;
+	display:block;
+	span{
+		float: left;
+		font-size: 26px;
+		opacity: 0.4;
+		margin-right: 4px;
+	}
+	&:before{
+		position:absolute;
+		font-size: 10px;
+		top: -20px;
+		content: "valid date";
+	}
+	input{
+		font-size: 26px;
+		width: 40px;
+		outline: none;
+		float: left;
+		border:none;
+		text-transform: uppercase;
+	}
+}
+
+
+.back{
+	overflow:hidden;
+	position: absolute;
+	top:130px;
+	left:100px;
+	z-index:-1;
+	box-sizing: border-box;
+	width: 450px;
+	height: 300px;
+	border-radius: 15px;
+	background: #f1e02d;
+	padding: 35px 30px;
+	transform: rotateY(15deg);
+	&:before{
+		position:absolute;
+		font-size: 10px;
+		right: 60px;
+		top: 200px;
+		content: "CVV";
+	}
+	input::placeholder{
+		color: black;
+		opacity: 0.5;
+	}
+	&:hover{
+		transform: rotateY(0deg);
+	}
+	transition: all 0.3s;
+}
+
+#cvv{
+	position:absolute;
+	top:220px;
+	right:15px;
+	span{
+		font-size: 26px;
+	}
+	input{
+		font-size: 26px;
+		width: 60px;
+		outline: none;
+		border:none;
+		background:transparent;
+		text-transform: uppercase;
+	}
+}
+
+#cardline{
+	width:160%;
+	height:60px;
+	opacity:0.8;
+	background:black;
+}
+
+.sumbit{
+	position:absolute;
+	top:460px;
+	left:100px;
+	border:none;
+	outline:none;
+	background: #69ffc8;
+	width:200px;
+	height:80px;
+	border-radius:15px;
+	text-transform:uppercase;
+	font-size: 18px;
+	font-weight: 700;
+	transform: rotateY(0deg);
+	&:hover{
+		background: #00f0ff;
+		transform: rotateY(15deg);
+	}
+	transition: all 0.3s;
+}
+
+
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+	cursor:pointer;
+	opacity: 0.4;
+	font-family: FontAwesome;
+	display: inline-block;
+	font-size: 22px;
+	content: "\f070"; 
+	color: black;
+	transition: all 0.2s;
+}
+
+
+/* checked icon */
+input[type=checkbox]:checked + label:before { 
+	content: "\f06e"; 
+	opacity:1;
+	color: #ff8528;
+} 
+
+
+#number{
+  display: inline-flex;
+}
+
+#submit-btn{
+  background-color:#ffb703;
+}

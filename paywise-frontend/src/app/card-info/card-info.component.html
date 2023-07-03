@@ -1,6 +1,54 @@
-<div class="payment-title">
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>UI 002 - card</title>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="css/style.css" /> -->
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="face">
+				<div class="holo">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="logo">
+		          <img src="http://dariographics.com/DUI/002/visa.svg" alt="" />
+		        </div>
+		        <div id="number">
+		        	<input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password">
+		        </div>
+		        <input id="show" type="checkbox"/>
+		        <label for="show"></label>
+		        <div id="holder">
+		        	<input placeholder="Name on card" maxlength="16">
+		        </div>
+		        <div id="date">
+		        	<input placeholder="05" maxlength="2">
+		        	<span>/</span>
+		        	<input placeholder="16" maxlength="2">
+		        </div>
+			</div>
+			<div class="back">
+				<div id="cardline"></div>
+				<div id="cvv">
+		        	<span>&#x275A;&#x275A;&#x275A;</span>
+		        	<input placeholder="123" maxlength="3">
+		        </div>
+			</div>
+			<button class="sumbit" id="submit-btn">sumbit</button>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+</html>	
+
+<!-- <div class="payment-title">
   <h1>Payment Information</h1>
-  <!-- <script src="card-info.component.js"></script> -->
 </div>
 <div class="container preload">
   <div class="creditcard">
@@ -124,7 +172,7 @@
 </div>
 
 <script>
-    // Remove non-numeric characters from input fields on keypress
+
     document.getElementById("cardnumber").addEventListener("keypress", function(event) {
       if (event.which < 48 || event.which > 57) {
         event.preventDefault();
@@ -142,4 +190,4 @@
         event.preventDefault();
       }
     });
-  </script>
+  </script> -->

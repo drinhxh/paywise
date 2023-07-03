@@ -72,7 +72,7 @@ a {
 	flex-direction: column;
   margin-right: 0;
   background: #f1f1f1;
-  
+  font-family: 'Courier New', Courier, monospace;
 
   /*
   display: flex;
@@ -921,5 +921,19 @@ button {
   display: flex;
   margin-right: 0;
   justify-content: center;
+}
+
+#money-green{
+	color: #008000; // #00754c
+	font-weight: bold;	
+}
+
+#money-red{
+	color: #d62828;
+	font-weight: bold;
+}
+
+#transfer-money-button{
+	font-weight: 600;
 }
 

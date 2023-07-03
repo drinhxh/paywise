@@ -16,6 +16,9 @@ export class UserProfileComponent implements OnInit {
   public senderUsers: User[] = [];
   public receiverUsers: User[] = [];
 
+  // not duplicated SENDER-USERS
+  public removedDuplicateSenderUsers: User[] = [];
+
   // for user index increment 
   public currentIndex: number = 0;
 
@@ -27,6 +30,16 @@ export class UserProfileComponent implements OnInit {
       if (user) {
         this.getSenderFundTransfers(user.id);
         this.getReceiverFundTransfers(user.id);
+      }
+    });
+  }
+
+  // for removing duplicated on SENDER-USERS
+  getRemovedDuplicateSenderUsers(): void {
+    this.removedDuplicateSenderUsers = [];
+    this.senderUsers.forEach(user => {
+      if (!this.removedDuplicateSenderUsers.some(u => u.id === user.id)) {
+        this.removedDuplicateSenderUsers.push(user);
       }
     });
   }

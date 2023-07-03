@@ -127,9 +127,9 @@ public class PaywiseApplication {
 	}
 
 	public void transferFunds(UserDAO userDAO, FundTransferDAO fundTransferDAO){
-		int senderId = 5;
-		int receiverId = 4;
-		double amount = 30.00;
+		int senderId = 4;
+		int receiverId = 3;
+		double amount = 70.00;
 		User sender = userDAO.findUserById(senderId);
 		User receiver = userDAO.findUserById(receiverId);
 

@@ -124,7 +124,7 @@
 							</h3>
 						</div>
 						<a href="#">
-							<span>Go to service</span>
+							<span>{{senders.bankAccount.accountNumber}}</span>
 							<span class="icon-button">
 								<i class="ph-caret-right-bold"></i>
 							</span>
@@ -167,9 +167,9 @@
 			</section>
 			<section class="transfer-section">
 				<div class="transfer-section-header">
-					<h2>Latest Money Sent</h2>
+					<h2>Latest Money Received</h2>
 					<div class="filter-options">
-						<p>Filter selected: more than 100 $</p>
+						<!-- <p>Filter selected: more than 100 $</p> -->
 						<!-- <button class="icon-button">
 							<i class="ph-funnel"></i>
 						</button>
@@ -178,34 +178,36 @@
 						</button> -->
 					</div>
 				</div>
-				<div class="transfers" *ngFor="let fund of receiverFundTransfers">
+				<div class="transfers" *ngFor="let receiverFund of receiverFundTransfers; let i = index">
 					<div class="transfer">
 						<div class="transfer-logo">
 							<img src="https://assets.codepen.io/285131/apple.svg" />
 						</div>
 						<dl class="transfer-details">
 							<div>
-								<dt>Apple Inc.</dt>
+								<dt>{{receiverUsers[i].username}}</dt>
 								<dd>Apple ID Payment</dd>
 							</div>
 							<div>
-								<dt>4012</dt>
+								<dt>asd</dt>
+								<!-- <dt>{{receiverFund.user_sender.bankAccount.accountNumber}}</dt> -->
 								<dd>Last four digits</dd>
 							</div>
 							<div>
-								<dt>28 Oct. 21</dt>
+								<dt>{{receiverFund.dateTime}}</dt>
 								<dd>Date payment</dd>
 							</div>
 						</dl>
 						<div class="transfer-number">
-							{{fund.amount}}
+							+ $ {{receiverFund.amount}}
 						</div>
 					</div>
+					{{incrementIndex()}}
 				</div>
         <div class="transfer-section-header">
-					<h2>Latest Money Received</h2>
+					<h2>Latest Money Sent</h2>
 					<div class="filter-options">
-						<p>Filter selected: more than 100 $</p>
+						<!-- <p>Filter selected: more than 100 $</p> -->
 						<!-- <button class="icon-button">
 							<i class="ph-funnel"></i>
 						</button> -->
@@ -214,27 +216,27 @@
 						</button> -->
 					</div>
 				</div>
-        <div class="transfers" *ngFor="let received of receiverUsers">
+        <div class="transfers" *ngFor="let senderFund of senderFundTransfers; let i = index">
 					<div class="transfer">
 						<div class="transfer-logo">
 							<img src="https://assets.codepen.io/285131/apple.svg" />
 						</div>
 						<dl class="transfer-details">
 							<div>
-								<dt>Apple Inc.</dt>
-								<dd>Apple ID Payment</dd>
+								<dt>{{senderUsers[i].username}}</dt>
+								<dd>Receiver Username</dd>
 							</div>
 							<div>
 								<dt>4012</dt>
 								<dd>Last four digits</dd>
 							</div>
 							<div>
-								<dt>28 Oct. 21</dt>
+								<dt>{{senderFund.dateTime}}</dt>
 								<dd>Date payment</dd>
 							</div>
 						</dl>
 						<div class="transfer-number">
-							- $ 550
+							- $ {{senderFund.amount}}
 						</div>
 					</div>
 				</div>

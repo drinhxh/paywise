@@ -17,6 +17,7 @@ import { MovingBackroundComponent } from './moving-backround/moving-backround.co
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpBankInfoComponent } from './sign-up-bank-info/sign-up-bank-info.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MovingBackroundComponent,
     UserProfileComponent,
     SignUpComponent,
+    SignUpBankInfoComponent,
   ],
   imports: [
     BrowserModule,

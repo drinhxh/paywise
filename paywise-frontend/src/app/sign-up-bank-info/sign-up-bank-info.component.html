@@ -4,15 +4,15 @@
   <p class="free">Almost there, just one more step.</p>
   <form>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="bankName" [(ngModel)]="userSharedService.newUser.bankAccount.bankName" required>
       <label>Bank Name</label>
     </div>
     <div class="user-box">
-      <input type="text" name="" required="">
-      <label>Accout Number</label>
+      <input type="text" name="accountNumber" [(ngModel)]="userSharedService.newUser.bankAccount.accountNumber" required>
+      <label>Account Number</label>
     </div>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="balance" [(ngModel)]="userSharedService.newUser.bankAccount.balance" required> <!-- TYPE="TEXT"  NASTHA DUHET NUMBER--->
       <label>Balance</label>
     </div>
     <a routerLink="/card-info" id="lgn">
@@ -20,10 +20,7 @@
       <span></span>
       <span></span>
       <span></span>
-      CONTINUE
+      CONTINUE {{userSharedService.newUser.lastName}}
     </a>
-    <!-- <p class="agree">By clicking the Sign Up button, you agree to our <a id="test" 
-      routerLink="/home">Terms &amp; Conditions</a> and <a routerLink="/home" id="test">Privacy Policy</a></p> -->
   </form>
-  <!-- <div class="agree">Already have an account? <a id="test" routerLink="/login">Login Here</a>.</div> -->
 </div>

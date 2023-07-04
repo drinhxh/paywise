@@ -190,7 +190,7 @@ body{
 	background:black;
 }
 
-.sumbit{
+.submit{
 	position:absolute;
 	top:460px;
 	left:100px;
@@ -239,5 +239,12 @@ input[type=checkbox]:checked + label:before {
 }
 
 #submit-btn{
-  background-color:#ffb703;
+  background-color:transparent;
+	color: #ffb703;
+	cursor: pointer;
+	margin-left: 100px;
+	border: 2px solid #ffb703;
 }
+
+
+

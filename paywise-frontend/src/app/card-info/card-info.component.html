@@ -21,29 +21,30 @@
 		          <img src="http://dariographics.com/DUI/002/visa.svg" alt="" />
 		        </div>
 		        <div id="number">
-		        	<input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password"><input placeholder="0000" maxlength="4" type="password">
+		        	<input placeholder="0000" name="cardNumber" [(ngModel)]="cardNumber1" maxlength="4" type="password">
+                    <input placeholder="0000" name="cardNumber" [(ngModel)]="cardNumber2" maxlength="4" type="password">
+                    <input placeholder="0000" name="cardNumber" [(ngModel)]="cardNumber3" maxlength="4" type="password">
+                    <input placeholder="0000" name="cardNumber" [(ngModel)]="cardNumber4" maxlength="4" type="password">
 		        </div>
 		        <input id="show" type="checkbox"/>
 		        <label for="show"></label>
 		        <div id="holder">
-		        	<input placeholder="Name on card" maxlength="16">
+		        	<input placeholder="Name on card" name="cardHolder" [(ngModel)]="userSharedService.newUser.card.cardHolder" maxlength="16">
 		        </div>
 		        <div id="date">
-		        	<input placeholder="05" maxlength="2">
+		        	<input placeholder="05" name="cardExperationMonth" [(ngModel)]="cardExperationMonth" maxlength="2">
 		        	<span>/</span>
-		        	<input placeholder="16" maxlength="2">
+		        	<input placeholder="16" name="cardExperationYear" [(ngModel)]="cardExperationYear" maxlength="2">
 		        </div>
 			</div>
 			<div class="back">
 				<div id="cardline"></div>
 				<div id="cvv">
 		        	<span>&#x275A;&#x275A;&#x275A;</span>
-		        	<input placeholder="123" maxlength="3">
+		        	<input placeholder="123"  [(ngModel)]="userSharedService.newUser.card.securityCode" maxlength="3">
 		        </div>
 			</div>
-			<button class="sumbit" id="submit-btn">sumbit</button>
+			<button class="submit" id="submit-btn" routerLink="/tmp" (click)="saveUser()">submit</button>
 		</div>
 	</body>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js"></script>
 </html>	

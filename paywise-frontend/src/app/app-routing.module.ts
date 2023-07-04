@@ -9,6 +9,7 @@ import { MovingBackroundComponent } from './moving-backround/moving-backround.co
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpBankInfoComponent } from './sign-up-bank-info/sign-up-bank-info.component';
+import { TmpComponent } from './tmp/tmp.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'moving-background', component: MovingBackroundComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'sign-up-bank-info', component: SignUpBankInfoComponent }
+  { path: 'sign-up-bank-info', component: SignUpBankInfoComponent },
+  { path: 'tmp', component: TmpComponent }
 ];
 
 @NgModule({

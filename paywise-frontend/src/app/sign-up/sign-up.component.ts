@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from 'src/entities/user';
 
+// For view Child purposes
+import { ViewChild } from '@angular/core';
+import { SignUpBankInfoComponent } from '../sign-up-bank-info/sign-up-bank-info.component';
+import { CardInfoComponent } from '../card-info/card-info.component';
+import { SignUpSharedServiceComponent } from '../sign-up-shared-service/sign-up-shared-service.component';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -11,34 +17,18 @@ export class SignUpComponent implements OnInit {
 
   public newUser: User | undefined;
 
+  // ViewChild references
+  // @ViewChild(SignUpBankInfoComponent) signUpBankComponent: SignUpBankInfoComponent | undefined;
+  // @ViewChild(CardInfoComponent) cardInfoComponent: CardInfoComponent | undefined;
 
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService, public userSharedService: SignUpSharedServiceComponent) { }
 
   ngOnInit(): void {
-
+    
   }
 
-  // submitForm(firstName: string, lastName: string, username: string, password: string) {
-  //   const user = {
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     username: username,
-  //     password: password,
-  //     bankAccount: null,
-  //     card: null
-  //   };
-
-  //   this.userService.addUser(user).subscribe(
-  //     (response) => {
-  //       console.log('User added successfully:', response);
-  //       // Optionally perform any additional actions upon successful user addition
-  //     },
-  //     (error) => {
-  //       console.error('Error adding user:', error);
-  //       // Handle error, display an error message, etc.
-  //     }
-  //   );
-  // }
+  // const signUpBankComponentData = this.signUpBankComponent.getData();
 
 
 }

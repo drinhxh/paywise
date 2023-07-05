@@ -26,7 +26,7 @@ export class CardInfoComponent implements OnInit {
   }
 
   setCardInfo(){
-    const cardNum = this.cardNumber1 + this.cardNumber2 + this.cardNumber3 + this.cardNumber4;
+    const cardNum = this.cardNumber1 + " " + this.cardNumber2 + " " + this.cardNumber3 + " " + this.cardNumber4;
     this.userSharedService.newUser.card.cardNumber = cardNum;
     const experation = this.cardExperationMonth + "/" + this.cardExperationYear;
     this.userSharedService.newUser.card.expiration = experation;
@@ -38,7 +38,7 @@ export class CardInfoComponent implements OnInit {
     this.setCardInfo();
     this.userService.addUser(this.userSharedService.newUser).subscribe(
       (response: User) => {
-        console.log(this.userSharedService.newUser);
+        // console.log(this.userSharedService.newUser);
         alert(this.userSharedService.newUser.firstName);
       },
       (error: any) => {

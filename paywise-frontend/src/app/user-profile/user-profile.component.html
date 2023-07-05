@@ -213,9 +213,9 @@
 				<div class="payments">
 					<div class="payment">
 						<div class="card green" id="yellow-card">
-							<span>{{user?.card?.expiration}}</span>
+							<span id="expiration">{{user?.card?.expiration}}</span>
 							<span>
-                {{user?.bankAccount?.accountNumber}}
+                {{user?.card?.cardNumber}}
 							</span>
 						</div>
 						<div class="payment-details">

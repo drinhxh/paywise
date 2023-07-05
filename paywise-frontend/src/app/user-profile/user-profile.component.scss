@@ -620,6 +620,8 @@ a {
 
 #yellow-card{
   background-color:#ffb703;
+	// font-size:xx-small;
+	font-size: 9px;
 }
 
 .payment-details {
@@ -936,5 +938,9 @@ button {
 
 #transfer-money-button{
 	font-weight: 600;
+}
+
+#expiration{
+	font-size: small;
 }
 

@@ -1,5 +1,5 @@
 export interface BankAccount {
-  id: number;
+  id?: number;
   accountNumber: string;
   bankName: string;
   balance: number;

@@ -28,8 +28,8 @@ export class UserProfileComponent implements OnInit {
     this.userService.getCurrentUser().subscribe((user: User | undefined) => {
       this.user = user;
       if (user) {
-        this.getSenderFundTransfers(user.id);
-        this.getReceiverFundTransfers(user.id);
+        this.getSenderFundTransfers(user.id!);
+        this.getReceiverFundTransfers(user.id!);
       }
     });
   }

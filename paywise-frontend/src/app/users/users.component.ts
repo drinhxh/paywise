@@ -14,12 +14,32 @@ export class UsersComponent implements OnInit {
   public userByUsername: User | undefined;
   public userByUserId: User | undefined;
 
+  // DUMMY
+  public dummyUser: User | undefined;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUsers();
-    this.getUserByUsername('baba'); 
-    this.getUserById(3);
+    // this.getUserByUsername('baba'); 
+    // this.getUserById(3);
+
+  
+    // this.userService.getUserByUsername("kingjames").subscribe(
+    //   (user: User) => {
+    //     if (user) {
+    //       const shortPassword = user.password.substring(6);
+    //         // Username and password are correct
+    //         this.userService.setCurrentUser(user); // Set the current user in the user service
+    //     } else {
+    //       // Username does not exist
+    //       alert('Invalid username');
+    //     }
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // );
   }
 
   public getUsers(): void {

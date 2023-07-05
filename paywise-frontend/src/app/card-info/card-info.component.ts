@@ -30,6 +30,8 @@ export class CardInfoComponent implements OnInit {
     this.userSharedService.newUser.card.cardNumber = cardNum;
     const experation = this.cardExperationMonth + "/" + this.cardExperationYear;
     this.userSharedService.newUser.card.expiration = experation;
+
+    this.userSharedService.newUser.id = undefined;
   }
 
   saveUser(): void {

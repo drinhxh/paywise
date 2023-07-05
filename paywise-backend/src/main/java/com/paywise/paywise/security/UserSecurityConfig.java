@@ -48,7 +48,7 @@ public class UserSecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/home/users/find/**").permitAll() //hasRole(Constants.SIMPLE_USER)
 //                    .requestMatchers(HttpMethod.POST, "/home/add").hasRole(Constants.ADMIN_USER)
 //                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.ADMIN_USER)
-                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.SIMPLE_USER)
+//                    .requestMatchers(HttpMethod.POST, "/home/add/**").hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.DELETE, "/home/delete/**").hasRole(Constants.ADMIN_USER)
                     .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.SIMPLE_USER)
                     .requestMatchers(HttpMethod.PUT, "/home/update").hasRole(Constants.ADMIN_USER)
@@ -56,6 +56,10 @@ public class UserSecurityConfig {
                     .requestMatchers(HttpMethod.GET, "home/users/sender/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "home/users/receiver/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "home/users/bank/acc/find/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/home/add").permitAll() // TODO can not add from frontend
+                    .requestMatchers(HttpMethod.OPTIONS, "/home/add").permitAll() // TODO can not add from frontend
+                    .anyRequest().authenticated() /// TODO : testing cuz can not addUser from frontend
+
     );
 
     httpSecurity.httpBasic(Customizer.withDefaults());

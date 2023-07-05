@@ -1,9 +1,7 @@
 export interface Card {
-  id: number;
+  id?: number;
   cardNumber: string;
   cardHolder: string;
   expiration: string;
   securityCode: string;
-
-
 }

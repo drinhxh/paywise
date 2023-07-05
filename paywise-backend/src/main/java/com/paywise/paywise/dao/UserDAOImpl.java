@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO{
 
     String noopPassword = "{noop}" + user.getPassword();
     user.setPassword(noopPassword);
-
+    System.out.println("Trying to save user");
     entityManager.persist(user);
     System.out.println("[CREATED USER] New user with id: " + user.getId());
     System.out.println("[CREATED USER] User: " + user);

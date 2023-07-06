@@ -7,6 +7,7 @@ import { ViewChild } from '@angular/core';
 import { SignUpBankInfoComponent } from '../sign-up-bank-info/sign-up-bank-info.component';
 import { CardInfoComponent } from '../card-info/card-info.component';
 import { SignUpSharedServiceComponent } from '../sign-up-shared-service/sign-up-shared-service.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,17 +16,20 @@ import { SignUpSharedServiceComponent } from '../sign-up-shared-service/sign-up-
 })
 export class SignUpComponent implements OnInit {
 
-  public newUser: User | undefined;
+  signUpForm!: FormGroup;
 
-  // ViewChild references
-  // @ViewChild(SignUpBankInfoComponent) signUpBankComponent: SignUpBankInfoComponent | undefined;
-  // @ViewChild(CardInfoComponent) cardInfoComponent: CardInfoComponent | undefined;
-
-
-  constructor(private userService: UserService, public userSharedService: SignUpSharedServiceComponent) { }
+  constructor(private userService: UserService, 
+              public userSharedService: SignUpSharedServiceComponent,
+              private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-    
+    this.signUpForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   // const signUpBankComponentData = this.signUpBankComponent.getData();

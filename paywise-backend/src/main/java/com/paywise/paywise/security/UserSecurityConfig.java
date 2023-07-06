@@ -58,6 +58,7 @@ public class UserSecurityConfig {
                     .requestMatchers(HttpMethod.GET, "home/users/bank/acc/find/**").permitAll()
                     .requestMatchers(HttpMethod.POST, "/home/add").permitAll()
                     .requestMatchers(HttpMethod.OPTIONS, "/home/add").permitAll()
+                    .requestMatchers(HttpMethod.PUT, "home/transfer/**").permitAll()
                     .anyRequest().authenticated() /// TODO : testing cuz can not addUser from frontend
 
     );

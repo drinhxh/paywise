@@ -13,22 +13,22 @@
 		</div>
 		<div class="app-header-navigation">
 			<div class="tabs" id="tabs-underline">
-				<a href="#">
+				<a routerLink="/not-found">
 					Overview
 				</a>
-				<a href="#" class="active">
+				<a routerLink="/not-found" class="active">
 					Payments
 				</a>
-				<a href="#">
+				<a routerLink="/not-found">
 					Cards
 				</a>
-				<a href="#">
+				<a routerLink="/not-found">
 					Account
 				</a>
-				<a href="#">
+				<a routerLink="/not-found">
 					System
 				</a>
-				<a href="#">
+				<a routerLink="/not-found">
 					Business
 				</a>
 			</div>
@@ -47,29 +47,29 @@
 	<div class="app-body">
 		<div class="app-body-navigation">
 			<nav class="navigation">
-				<a href="#">
+				<a>
 					<i class="ph-browsers"></i>
-					<span>Dashboard</span>
+					<span routerLink="/not-found" id="cursor-btn">Dashboard</span>
 				</a>
-				<a href="#">
+				<a>
 					<i class="ph-check-square"></i>
-					<span>Scheduled</span>
+					<span routerLink="/not-found" id="cursor-btn">Scheduled</span>
 				</a>
-				<a href="#">
+				<a>
 					<i class="ph-swap"></i>
-					<span>Transfers</span>
+					<span routerLink="/not-found" id="cursor-btn">Transfers</span>
 				</a>
-				<a href="#">
+				<a>
 					<i class="ph-file-text"></i>
-					<span>Templates</span>
+					<span routerLink="/not-found" id="cursor-btn">Templates</span>
 				</a>
-				<a href="#">
+				<a>
 					<i class="ph-globe"></i>
-					<span>SWIFT</span>
+					<span routerLink="/not-found" id="cursor-btn">SWIFT</span>
 				</a>
-				<a href="#">
+				<a>
 					<i class="ph-clipboard-text"></i>
-					<span>Exchange</span>
+					<span routerLink="/not-found" id="cursor-btn">Exchange</span>
 				</a>
 			</nav>
 			<footer class="footer">
@@ -93,7 +93,7 @@
 						</select>
 						<i class="ph-caret-down"></i>
 					</div>
-					<button class="flat-button" id="transfer-money-button">
+					<button class="flat-button" id="transfer-money-button" (click)="openModal()">
 						Transfer Money
 					</button>
 				</div>
@@ -111,7 +111,7 @@
 								<span>{{senders?.username}}</span>
 							</h3>
 						</div>
-						<a href="#">
+						<a>
 							<span>{{senders.bankAccount.bankName}}</span>
 							<span class="icon-button">
 								<i class="ph-caret-right-bold"></i>
@@ -149,7 +149,7 @@
 							</div>
 						</dl>
 						<div class="transfer-number" id="money-green">
-							+ $ {{receiverFund.amount}}
+							+ € {{receiverFund.amount}}
 						</div>
 					</div>
 					{{incrementIndex()}}
@@ -179,7 +179,7 @@
 							</div>
 						</dl>
 						<div class="transfer-number" id="money-red">
-							- $ {{senderFund.amount}}
+							- € {{senderFund.amount}}
 						</div>
 					</div>
 				</div>
@@ -220,7 +220,7 @@
 						</div>
 						<div class="payment-details">
 							<div>
-								<span>$ {{ user?.bankAccount?.balance }}</span>
+								<span>€ {{ user?.bankAccount?.balance }}</span>
 							</div>
 						</div>
 					</div>
@@ -239,26 +239,28 @@
 	</div>
 </div>
 
-<!-- <div *ngIf="user">
-  THIS IS CURRENT USER
-  <p>First Name: {{ user.firstName }}</p>
-  <p>Last Name: {{ user.lastName }}</p>
-  <p>Bank Account Balance: {{ user.bankAccount.balance }}</p>
-  <p>Username: {{ user.username }}</p>
-  <p>Sent Fund Transfers:</p>
-  <ul>
-    
-  <ul>
-    {{user.firstName}} sent money TO THESE PEOPLE
-    <li *ngFor="let sender of senderUsers">
-      Sent to NAME: {{ sender.firstName }}, Username: {{ sender.username }}, Bank Account to: {{sender.bankAccount.accountNumber}}
-    </li>
-  </ul>
-  <ul>
-    {{user.firstName}} got money FROM THESE PEOPLE
-    <li *ngFor="let receiver of receiverUsers">
-      Received from: {{ receiver.firstName }}, Username: {{ receiver.username }}, Bank Account {{receiver.bankAccount.accountNumber}} 
-    </li>
-  </ul> -->
+
+
+<!-- TRANSFER MONEY MODAL -->
+<div class='moneyTransferModal' id="moneyTransferModal" aria-labelledby="moneyTransferModalLabel" aria-hidden="true">
+  <div class='header'>
+    MAKE A NEW TRANSFER
+  </div>
+  <form (ngSubmit)="submitTransferForm()">
+    <div class='content'>
+      <input type="text" [(ngModel)]="receiverUsername" name="receiverUsername" required>
+      <label id="usrnm">Username</label>
+    </div>
+    <div class='content'>
+      <input type="text" [(ngModel)]="transferAmount" name="transferAmount" required>
+      <label>Amount</label>
+    </div>
+    <div class='actions'>
+      <a class='send' id="send">SEND</a>
+      <a class="cancel" id="cancel">CANCEL</a>
+    </div>
+  </form>
+</div>
+
 
 

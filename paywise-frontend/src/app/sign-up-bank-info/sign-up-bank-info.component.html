@@ -1,7 +1,7 @@
 <app-moving-backround></app-moving-backround>
 <div class="login-box">
   <h2>SIGN UP</h2>
-  <p class="free">Almost there, just one more step.</p>
+  <p class="free" id="txt">Almost there, just one more step.</p>
   <form>
     <div class="user-box">
       <input type="text" name="bankName" [(ngModel)]="userSharedService.newUser.bankAccount.bankName" required>
@@ -20,7 +20,7 @@
       <span></span>
       <span></span>
       <span></span>
-      CONTINUE {{userSharedService.newUser.lastName}}
+      CONTINUE
     </a>
   </form>
 </div>

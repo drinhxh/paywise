@@ -39,7 +39,8 @@ export class CardInfoComponent implements OnInit {
     this.userService.addUser(this.userSharedService.newUser).subscribe(
       (response: User) => {
         // console.log(this.userSharedService.newUser);
-        alert(this.userSharedService.newUser.firstName);
+        // alert(this.userSharedService.newUser.firstName);
+        
       },
       (error: any) => {
       }

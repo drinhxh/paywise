@@ -1,5 +1,6 @@
 package com.paywise.paywise.controller;
 
+import com.paywise.paywise.dao.FundTransferDAO;
 import com.paywise.paywise.dao.UserDAO;
 import com.paywise.paywise.entity.FundTransfer;
 import com.paywise.paywise.entity.User;
@@ -16,9 +17,11 @@ import java.util.List;
 //@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
   private final UserDAO userDAO;
+  private final FundTransferDAO fundTransferDAO;
 
-  public UserController(UserDAO userDAO) {
+  public UserController(UserDAO userDAO, FundTransferDAO fundTransferDAO) {
     this.userDAO = userDAO;
+    this.fundTransferDAO = fundTransferDAO;
   }
 
   @GetMapping("/users/sender/{id}")
@@ -78,6 +81,35 @@ public class UserController {
       return new ResponseEntity<>(retrievedUser, HttpStatus.NOT_FOUND);
     }
   }
+
+  @PutMapping("/transfer/{senderId}/{receiverUsername}/{amount}")
+  public ResponseEntity<User> transferMoney(@PathVariable("senderId") Integer senderId,
+                                            @PathVariable("receiverUsername") String receiverUsername,
+                                            @PathVariable("amount") Double amount){
+    User sender = userDAO.findUserById(senderId);
+    User receiver = userDAO.findUserByUsername(receiverUsername);
+
+    if(sender == null || receiver == null){
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    Integer receiverId = receiver.getId(); // for transferFund
+
+    System.out.println("Transferring the amount of: " + amount);
+    FundTransfer fundTransfer = fundTransferDAO.transferFunds(senderId, receiverId, amount);
+    System.out.println("Transfer completed!");
+
+    System.out.println("Setting up SENDER transfer...");
+    sender.addSenderFundTransfer(fundTransfer);
+    System.out.println("SENDER transfer done!");
+
+    System.out.println("Setting up RECEIVER transfer...");
+    receiver.addReceiverFundTransfer(fundTransfer);
+    System.out.println("RECEIVER transfer done!");
+
+    return new ResponseEntity<>(sender, HttpStatus.OK);
+  }
+
 
   @PostMapping("/add")
   public ResponseEntity<User> addUser(@RequestBody User user){

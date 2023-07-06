@@ -23,23 +23,8 @@ export class UsersComponent implements OnInit {
     this.getUsers();
     // this.getUserByUsername('baba'); 
     // this.getUserById(3);
-
-  
-    // this.userService.getUserByUsername("kingjames").subscribe(
-    //   (user: User) => {
-    //     if (user) {
-    //       const shortPassword = user.password.substring(6);
-    //         // Username and password are correct
-    //         this.userService.setCurrentUser(user); // Set the current user in the user service
-    //     } else {
-    //       // Username does not exist
-    //       alert('Invalid username');
-    //     }
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     alert(error.message);
-    //   }
-    // );
+    this.userService.transferMoney(1, "fake thug", 200.00);
+    console.log("transferMoney from USERS");
   }
 
   public getUsers(): void {

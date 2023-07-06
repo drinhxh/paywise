@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, importProvidersFrom } from '@angular/core';
 import { User } from 'src/entities/user';
 import { UserService } from '../user.service';
 import { FundTransfer } from 'src/entities/fund_transfer';
 import { Observable, forkJoin, map, of, switchMap } from 'rxjs';
+import { ViewChild, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,11 +20,14 @@ export class UserProfileComponent implements OnInit {
 
   // not duplicated SENDER-USERS
   public removedDuplicateSenderUsers: User[] = [];
-
   // for user index increment 
   public currentIndex: number = 0;
 
-  constructor(private userService: UserService) { }
+  // For Money-Transfer
+  public receiverUsername: string | undefined;
+  public transferAmount: number | undefined;
+
+  constructor(private userService: UserService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe((user: User | undefined) => {
@@ -30,9 +35,63 @@ export class UserProfileComponent implements OnInit {
       if (user) {
         this.getSenderFundTransfers(user.id!);
         this.getReceiverFundTransfers(user.id!);
+        // this.userService.transferMoney(1, "fake thug", 200);
       }
     });
   }
+
+  
+
+  // MODAL MONEY TRANSFER
+  public openModal() {
+    const modal = document.getElementById("moneyTransferModal");
+    if (modal) {
+      modal.style.display = "block";
+    }
+
+    const cancelButton = document.getElementById("cancel");
+    cancelButton?.addEventListener("click", function() {
+    if(modal){
+      modal.style.display = "none";
+    }
+    });
+    
+    const sendButton = document.getElementById("send");
+    sendButton?.addEventListener("click", () => {
+      if (this.user && this.receiverUsername && this.transferAmount) {
+        // this.transferMoney(1, "baba", 100);
+        this.userService.transferMoney(this.user.id!, this.receiverUsername, this.transferAmount)
+          .subscribe(
+            (response) => {
+              alert("Transfer succesful!");
+              // Transfer successful, handle the response if needed
+              console.log("Transfer successful:", response);
+            },
+            (error) => {
+              // Handle transfer error
+              alert("[ERROR] Transfering money!!");
+              console.log("Error transferring money:", error);
+            }
+          );
+      }
+  
+      if (modal) {
+        console.log(this.receiverUsername);
+        console.log(this.transferAmount);
+        modal.style.display = "none";
+      }
+    });
+  }
+
+
+  submitTransferForm(): void {
+    // Save the values of receiverUsername and transferAmount
+    console.log('Receiver Username:', this.receiverUsername);
+    console.log('Transfer Amount:', this.transferAmount);
+
+    // Perform further actions or API calls if needed
+  }
+
 
   // for removing duplicated on SENDER-USERS
   getRemovedDuplicateSenderUsers(): void {
@@ -103,6 +162,53 @@ export class UserProfileComponent implements OnInit {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // transferMoney(senderId: number, receiverUsername: string, amount: number) {
+  //   const url = `/home/transfer/${senderId}/${receiverUsername}/${amount}`;
+  //   const body = {}; // You can pass additional data in the request body if needed
+
+  //   this.http.post(url, body).subscribe(
+  //     (response) => {
+  //       console.log('Money transfer successful:', response);
+  //       // Handle the success response
+  //     },
+  //     (error) => {
+  //       console.error('Error transferring money:', error);
+  //       // Handle the error response
+  //     }
+  //   );
+  // }
+
+
+
+
 
 
 

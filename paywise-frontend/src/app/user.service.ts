@@ -64,7 +64,12 @@ export class UserService {
 
   // get User by BankAccount, needed to show later when showing transfers
   public getUserByBankAccount(bankAcc: string): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/home/users/bank/acc/find/${bankAcc}`)
+    return this.http.get<User>(`${this.apiServerUrl}/home/users/bank/acc/find/${bankAcc}`);
+  }
+
+  public transferMoney(senderId: number, receiverUsername: string, amount: number): Observable<User> {
+    console.log("TRANSFER MONEY CALLED");
+    return this.http.put<User>(`${this.apiServerUrl}/home/transfer/${senderId}/${receiverUsername}/${amount}`, null);
   }
 
 }

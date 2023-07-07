@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    // this.userService.transferMoney(1, "fake thug", 200);
   }
 
   onSubmit() {

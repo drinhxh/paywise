@@ -3,11 +3,11 @@
 		<div class="app-header-logo">
 			<div class="logo" id="logo-underline">
 				<span class="logo-icon">
-					<img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+					<img src="https://cdn.dribbble.com/users/1525393/screenshots/15704888/media/cdcf5b0924a838215b2c12dc30ebf3a9.gif" id="logo-img"/>
 				</span>
-				<h1 class="logo-title">
-					<span>PAYWISE</span>
-					<span>smth smth</span>
+				<h1 class="logo-title" >
+					<span id="paywise-logo">PAYWISE</span>
+					<!-- <span>smth </span> -->
 				</h1>
 			</div>
 		</div>
@@ -37,7 +37,7 @@
 			<button class="user-profile">
 				<span>{{user?.firstName}} {{user?.lastName}}</span>
 				<span>
-					<img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+					<img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" id="usr-pht"/>
 				</span>
 			</button>
 			<div class="app-header-actions-buttons">
@@ -70,6 +70,10 @@
 				<a>
 					<i class="ph-clipboard-text"></i>
 					<span routerLink="/not-found" id="cursor-btn">Exchange</span>
+				</a>
+				<a>
+					<i class="ph-clipboard-text"></i>
+					<span routerLink="/login" id="cursor-btn">Sign out</span>
 				</a>
 			</nav>
 			<footer class="footer">
@@ -132,7 +136,8 @@
 				<div class="transfers" *ngFor="let receiverFund of receiverFundTransfers; let i = index">
 					<div class="transfer">
 						<div class="transfer-logo">
-							<img src="https://assets.codepen.io/285131/apple.svg" />
+							<!-- <img src="https://www.freeiconspng.com/thumbs/money-transfer-icon/dollar-exchange-money-transfer-icon-21.png" id="money-transfer-logo"/> -->
+							<img src="https://cdn-icons-png.flaticon.com/512/4641/4641409.png" id="money-transfer-logo" />
 						</div>
 						<dl class="transfer-details">
 							<div>
@@ -161,8 +166,9 @@
 				</div>
         <div class="transfers" *ngFor="let senderFund of senderFundTransfers; let i = index">
 					<div class="transfer">
-						<div class="transfer-logo">
-							<img src="https://assets.codepen.io/285131/apple.svg" />
+						<div class="transfer-logo" id="money-transfer-logo-div">
+							<!-- <img src="https://sterlingglobal.global/wp-content/uploads/2015/12/harrods_feature-300x2735.png" id="money-transfer-logo" /> -->
+							<img src="https://cdn-icons-png.flaticon.com/512/4641/4641409.png" id="money-transfer-logo" />
 						</div>
 						<dl class="transfer-details">
 							<div>
@@ -171,7 +177,7 @@
 							</div>
 							<div>
 								<dt>{{senderUsers[i].bankAccount.accountNumber}}</dt>
-								<dd>Last four digits</dd>
+								<dd>Bank account number</dd>
 							</div>
 							<div>
 								<dt>{{senderFund.dateTime}}</dt>
@@ -261,6 +267,3 @@
     </div>
   </form>
 </div>
-
-
-

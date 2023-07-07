@@ -35,7 +35,6 @@ export class UserProfileComponent implements OnInit {
       if (user) {
         this.getSenderFundTransfers(user.id!);
         this.getReceiverFundTransfers(user.id!);
-        // this.userService.transferMoney(1, "fake thug", 200);
       }
     });
   }
@@ -59,16 +58,15 @@ export class UserProfileComponent implements OnInit {
     const sendButton = document.getElementById("send");
     sendButton?.addEventListener("click", () => {
       if (this.user && this.receiverUsername && this.transferAmount) {
-        // this.transferMoney(1, "baba", 100);
-        this.userService.transferMoney(this.user.id!, this.receiverUsername, this.transferAmount)
+        this.userService.transferMoney(this.user.username!, this.receiverUsername, this.transferAmount)
           .subscribe(
             (response) => {
               alert("Transfer succesful!");
-              // Transfer successful, handle the response if needed
+
               console.log("Transfer successful:", response);
+              this.refreshUser();
             },
             (error) => {
-              // Handle transfer error
               alert("[ERROR] Transfering money!!");
               console.log("Error transferring money:", error);
             }
@@ -84,12 +82,22 @@ export class UserProfileComponent implements OnInit {
   }
 
 
+  // refreshing after money transfer to update user info
+  refreshUser(): void {
+    this.userService.getCurrentUser().subscribe(
+      (user: User | undefined) => {
+        this.user = user;
+      },
+      (error) => {
+        console.log('Error refreshing user:', error);
+      }
+    );
+  }
+
+
   submitTransferForm(): void {
-    // Save the values of receiverUsername and transferAmount
     console.log('Receiver Username:', this.receiverUsername);
     console.log('Transfer Amount:', this.transferAmount);
-
-    // Perform further actions or API calls if needed
   }
 
 

@@ -82,21 +82,19 @@ public class UserController {
     }
   }
 
-  @PutMapping("/transfer/{senderId}/{receiverUsername}/{amount}")
-  public ResponseEntity<User> transferMoney(@PathVariable("senderId") Integer senderId,
+  @GetMapping("/transfer/{senderId}/{receiverUsername}/{amount}")
+  public ResponseEntity<User> transferMoney(@PathVariable("senderId") String senderUsername,
                                             @PathVariable("receiverUsername") String receiverUsername,
                                             @PathVariable("amount") Double amount){
-    User sender = userDAO.findUserById(senderId);
+    User sender = userDAO.findUserByUsername(senderUsername);
     User receiver = userDAO.findUserByUsername(receiverUsername);
 
     if(sender == null || receiver == null){
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    Integer receiverId = receiver.getId(); // for transferFund
-
     System.out.println("Transferring the amount of: " + amount);
-    FundTransfer fundTransfer = fundTransferDAO.transferFunds(senderId, receiverId, amount);
+    FundTransfer fundTransfer = fundTransferDAO.transferFunds(sender.getId(), receiver.getId(), amount);
     System.out.println("Transfer completed!");
 
     System.out.println("Setting up SENDER transfer...");

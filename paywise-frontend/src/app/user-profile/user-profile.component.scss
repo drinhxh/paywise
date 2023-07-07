@@ -76,13 +76,6 @@ a {
   margin-right: 0;
   background: #f1f1f1;
   font-family: 'Courier New', Courier, monospace;
-
-  /*
-  display: flex;
-  align-items:flex-start;
-  justify-content: center;
-  border-left: 1px solid #fb8500;
-  */
 }
 
 .app-header {
@@ -116,16 +109,6 @@ a {
 	}
 }
 
-// .app-header-actions-buttons {
-// 	display: flex;
-// 	border-left: 1px solid var(--c-gray-600);
-// 	margin-left: 2rem;
-// 	padding-left: 2rem;
-
-// 	& > * + * {
-// 		margin-left: 1rem;
-// 	}
-// }
 
 .app-header-mobile {
 	display: none;
@@ -215,8 +198,9 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 32px;
-	height: 32px;
+	width: 100px;
+	height: 100px;
+  background: #f1f1f1;
 }
 
 .logo-title {
@@ -329,36 +313,6 @@ a {
 	}
 }
 
-// .icon-button {
-// 	width: 32px;
-// 	height: 32px;
-// 	border-radius: 50%;
-// 	border: 0;
-// 	background-color: transparent;
-// 	border: 1px solid var(--c-gray-500);
-// 	color: var(--c-text-primary);
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	cursor: pointer;
-// 	transition: 0.25s ease;
-// 	flex-shrink: 0;
-// 	&.large {
-// 		width: 42px;
-// 		height: 42px;
-// 		font-size: 1.25em;
-// 	}
-
-// 	i {
-// 		transition: 0.25s ease;
-// 	}
-
-// 	&:hover,
-// 	&:focus {
-// 		background-color: var(--c-gray-600);
-// 		box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
-// 	}
-// }
 
 .tiles {
 	display: inline-flex;
@@ -378,8 +332,8 @@ a {
 	border-radius: 8px;
 	background-color: var(--c-olive-500);
 	color: var(--c-gray-900);
-	min-height: 200px;
-	min-width: 200px;
+	min-height: 220px;
+	min-width: 220px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -393,19 +347,6 @@ a {
 	&:focus-within {
 		box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-olive-500);
 	}
-
-	// &:nth-child(2) {
-	// 	background-color: var(--c-green-500);
-	// 	&:focus-within {
-	// 		box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-green-500);
-	// 	}
-	// }
-	// &:nth-child(3) {
-	// 	background-color: var(--c-gray-300);
-	// 	&:focus-within {
-	// 		box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
-	// 	}
-	// }
 
 	a {
 		text-decoration: none;
@@ -811,39 +752,6 @@ a {
 	}
 }
 
-// .faq {
-// 	margin-top: 1.5rem;
-// 	display: flex;
-// 	flex-direction: column;
-// 	p {
-// 		color: var(--c-text-tertiary);
-// 		font-size: 0.875rem;
-// 	}
-
-// 	div {
-// 		margin-top: 0.75rem;
-// 		padding-top: 0.75rem;
-// 		padding-bottom: 0.75rem;
-// 		border-top: 1px solid var(--c-gray-600);
-// 		border-bottom: 1px solid var(--c-gray-600);
-// 		font-size: 0.875rem;
-// 		display: flex;
-// 		align-items: center;
-
-// 		label {
-// 			padding-right: 1rem;
-// 			margin-right: 1rem;
-// 			border-right: 1px solid var(--c-gray-600);
-// 		}
-
-// 		input {
-// 			border: 0;
-// 			background-color: transparent;
-// 			padding: 0.25em 0;
-// 			width: 100%;
-// 		}
-// 	}
-// }
 
 .payment-section-footer {
 	display: flex;
@@ -1075,7 +983,21 @@ body{
   font-size: 12px;
 }
 
-// #usrnm{
-// 	padding-left: 110px;
-// }
+#cursor-btn{
+	cursor: pointer;
+}
 
+
+#logo-img{
+	size: 100px;
+}
+
+
+#money-transfer-logo{
+	width: 40px;
+	height: 40px;
+}
+
+#money-transfer-logo-div{
+	border-radius: 10px;
+}

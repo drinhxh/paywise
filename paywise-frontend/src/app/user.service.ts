@@ -67,9 +67,9 @@ export class UserService {
     return this.http.get<User>(`${this.apiServerUrl}/home/users/bank/acc/find/${bankAcc}`);
   }
 
-  public transferMoney(senderId: number, receiverUsername: string, amount: number): Observable<User> {
+  public transferMoney(senderUsername: string, receiverUsername: string, amount: number): Observable<User> {
     console.log("TRANSFER MONEY CALLED");
-    return this.http.put<User>(`${this.apiServerUrl}/home/transfer/${senderId}/${receiverUsername}/${amount}`, null);
+    return this.http.get<User>(`${this.apiServerUrl}/home/transfer/${senderUsername}/${receiverUsername}/${amount}`);
   }
 
 }

@@ -19,12 +19,6 @@ public interface UserDAO{
   void updateReceiverFundTransfer(int id, FundTransfer fundTransfer);
   void updateRoles(int id, Roles roles);
 
-
-  // TODO : getRoles(), getFundTransfers()
-  // TODO : implement on RolesDAO/FundTransferDAO, import on UserDAO and get them as getters
-
-
-
   // ENCRYPTION
   String encodeBCryptEncode(String password);
 

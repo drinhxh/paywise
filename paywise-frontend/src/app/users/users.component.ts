@@ -16,18 +16,20 @@ export class UsersComponent implements OnInit {
 
   // DUMMY
   public dummyUser: User | undefined;
+  public id: number = 3;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUsers();
     // this.getUserByUsername('baba'); 
-    // this.getUserById(3);
-    this.userService.transferMoney(1, "fake thug", 200.00);
-    console.log("transferMoney from USERS");
+    this.getUserById(this.id);
+    // this.userService.transferMoney(1, "fake thug", 200.00);
+    // console.log("transferMoney from USERS");
   }
 
   public getUsers(): void {
+    
     this.userService.getUsers().subscribe(
       (response: User[]) => {
         this.users = response;

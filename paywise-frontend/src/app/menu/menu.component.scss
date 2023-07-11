@@ -23,18 +23,17 @@ $color5: #d90429;
   background-color: #023047;
   font-family: 'Courier New', Courier, monospace;
   color: #e7e7de;
-  // font-family: 'Poppins', sans-serif;
-  .static-item {
+  height: 57px;
+
+  .brand {
     padding: 20px;
     cursor: pointer;
     user-select: none;
     position: relative;
     overflow: hidden;
-    margin: 0;
+    margin-right: auto; /* Added to push other items to the right */
   }
-  .grow {
-    flex-grow: 1;
-  }
+
   .item {
     padding: 20px;
     cursor: pointer;
@@ -43,20 +42,21 @@ $color5: #d90429;
     overflow: hidden;
     margin: 0;
     transition: 0.3s color, 0.1s background-color;
+
     &::after {
       transition: 0.3s transform, 0.1s left, 0.1s right;
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       height: 3px;
       bottom: 0;
-      left: 0; /* Change from '20px' to '0' */
-      right: 0; /* Change from '20px' to '0' */
+      left: 0;
+      right: 0;
       border-bottom: 3px solid #ffb703;
     }
 
     &:hover {
-      background-color: lighten(#ffb703, 10%); /* #509724 gjelbert e dhezt, #39d05c gjelbert qelt (ma mire qikjo), #fdba31 e verdhe interesant kontrast*/
+      background-color: lighten(#ffb703, 10%);
     }
 
     &:hover::after {
@@ -106,3 +106,9 @@ h2 {
     color: #0e918c;
   }
 }
+
+#brand{
+  font-size: 25px;
+  color: #ffb703;
+}
+

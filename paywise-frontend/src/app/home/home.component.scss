@@ -16,7 +16,9 @@ body {
   
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #D7D7D7;
+  // background-color: #D7D7D7;
+  // background-color: rgb(163,219,251);
+  background-color: #FFF;
   // font-family: 'Courier New', Courier, monospace;
   &::before {
     content: "";
@@ -26,7 +28,7 @@ body {
     left: 60%;
     top: 138px;
     filter: blur(90px);
-    background-color: #FB37FF;
+    // background-color: #FB37FF;
   }
   &::after {
     content: "";
@@ -35,7 +37,7 @@ body {
     height: 123px;
     left: 80%;
     top: 550px;
-    background-color: #18B2DE;
+    // background-color: #18B2DE;
     filter: blur(80px);
   }
   .navbar {
@@ -52,7 +54,7 @@ body {
     margin-top: 80px;
   }
   .auction {
-    margin-top: 100px;
+    margin-top: 0;
   }
   .discover {
     display: flex;
@@ -91,7 +93,7 @@ body {
     width: 126px;
     height: 45px;
     color: #BCBCBC;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -105,13 +107,13 @@ body {
     background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
   }
   .navlink {
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -136,7 +138,7 @@ body {
     overflow: hidden;
     &-boldtext {
       margin: 0;
-      font-family: Poppins;
+      font-family: 'Courier New', Courier, monospace;
       color: #FFFFFF;
       font-size: 65px;
       font-weight: 600;
@@ -146,7 +148,7 @@ body {
     }
     &-slimtext {
       margin: 24px 0;
-      font-family: Poppins;
+      font-family: 'Courier New', Courier, monospace;
       color: #FFFFFF;
       font-size: 16px;
       font-weight: 400;
@@ -166,7 +168,7 @@ body {
       padding: 8px 38px;
       border-radius: 16px;
       
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       font-weight: 600;
       font-size: 13px;
@@ -184,7 +186,7 @@ body {
       border: 1px solid #D7D7D7;
       border-radius: 16px;
       
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       font-weight: 600;
       font-size: 13px;
@@ -193,18 +195,18 @@ body {
     }
     .selected {
       border: none;
-      background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+      // background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
     }
   }
   .display {
     animation-name: rightslide;
     animation-duration: 0.8s;
     padding: 14px;
-    border: 1px solid;
-    background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%);
+    // border: 1px solid;
+    // background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%);
     border-radius: 35px;
-    max-height: 450px;
-    max-width: 50%;
+    height: 740px;
+    width:  740px;
     overflow: hidden;
     &-nft {
       object-fit: cover;
@@ -224,7 +226,7 @@ body {
     .info {
       display: flex;
       align-items: center;
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       color: #FFFFFF;
       font-weight: 600;
@@ -245,7 +247,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       color: #FFFFFF;
       font-style: normal;
       font-weight: 600;
@@ -271,7 +273,7 @@ body {
     margin-bottom: 50px;
     .titlebold {
       margin: 0;
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       color: #FFFFFF;
       font-weight: 500;
@@ -280,7 +282,7 @@ body {
     }
     .titleslim {
       margin: 0;
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       color: #D7D7D7;
       font-weight: 600;
@@ -295,7 +297,9 @@ body {
     grid-row-gap: 20px;
     grid-column-gap: 20px;
     justify-content: space-between;
+    // margin-bottom: 50px;
   }
+  
 }
 .started {
   margin-top: 100px;
@@ -314,7 +318,7 @@ body {
   &-slimtext {
     margin: 0;
     align-self: center;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -337,7 +341,7 @@ body {
       height: 100px;
       top: 80px;
       filter: blur(80px);
-      background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+      background: linear-gradient(93.51deg, #023047 2.84%, #fb8500 99.18%);
     }
     .itemwrapper {
       p {
@@ -345,7 +349,7 @@ body {
         margin: 0;
         margin-top: 10px;
         text-align: center;
-        font-family: 'Poppins';
+        font-family: 'Courier New', Courier, monospace;
         font-style: normal;
         font-weight: 400;
         font-size: 12px;
@@ -372,7 +376,7 @@ body {
     align-items: center;
     justify-content: space-between;
     p {
-      font-family: 'Poppins';
+      font-family: 'Courier New', Courier, monospace;
       font-style: normal;
       font-weight: 500;
       font-size: 36px;
@@ -396,7 +400,7 @@ body {
     border: 1px solid #D7D7D7;
     border-radius: 10px;
     background-color: transparent;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -407,7 +411,7 @@ body {
 .footer {
   &-main {
     max-width: 40%;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -420,7 +424,7 @@ body {
       margin-left: 60px;
       h5 {
         margin: 0;
-        font-family: 'Poppins';
+        font-family: 'Courier New', Courier, monospace;
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
@@ -428,7 +432,7 @@ body {
         color: #FFFFFF;
       }
       p {
-        font-family: 'Poppins';
+        font-family: 'Courier New', Courier, monospace;
         font-style: normal;
         font-weight: 400;
         font-size: 12px;
@@ -441,7 +445,7 @@ body {
 }
 .footer2 {
   p {
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -472,7 +476,7 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid white;
     
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -480,7 +484,7 @@ body {
     color: #FFFFFF;
   }
   &-date {
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -495,7 +499,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: 30px;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -511,10 +515,10 @@ body {
     justify-content: center;
     width: 100px;
     height: 30px;
-    background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+    // background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
     border: none;
     border-radius: 10px;
-    font-family: 'Poppins';
+    font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -719,4 +723,67 @@ body {
 @keyframes rightslide {
   from {transform: translateX(550px);}
   to {transform: translateX(0px);}
+}
+
+
+#moeny-gif{
+  max-height:100%; 
+  max-width:100%;
+  object-fit: contain;
+}
+
+#teget-color{
+  color: #023047;
+}
+
+#home-page{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+#btn-background-login{
+  background-color: #023047;
+  color: #ffb703;
+}
+
+#btn-background-sign-up{
+  background-color: #ffb703;
+  color: #023047;
+}
+
+#item-first{
+  margin-left: 110px;
+}
+
+#item-last{
+  margin-right: 110px;
+}
+
+.started-items-item{
+  background-color: #023047;
+}
+
+#item-last{
+  background-color: #023047;
+  border-radius: 15px;
+}
+
+
+
+
+#tiles-text{
+  font-size: 16px;
+  color: #023047;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#high-tech-info {
+  margin-top: 80px;
+  font-size: 40px;
+  line-height: 50px;
 }

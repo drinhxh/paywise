@@ -476,7 +476,7 @@ body {
   &-title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border-bottom: 1px solid white;
     
     font-family: 'Courier New', Courier, monospace;
@@ -813,13 +813,21 @@ body {
 }
 
 
-
-
 #tiles-first{
   margin-left: 180px;
 }
 
 #tiles-last{
   margin-left: 80px;
+}
+
+#item-txt{
+  align-items: center;
+}
+
+
+#item-content{
+  color: #023047;
+  margin-top: 15px;
 }
 

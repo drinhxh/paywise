@@ -46,8 +46,8 @@ class UserDAOImplTest {
     User emptyUser = new User();
 
     assertThrows(NullPointerException.class, () -> {
-              userDAO.saveUser(emptyUser);
-            });
+      userDAO.saveUser(emptyUser);
+    });
   }
 
   @Test

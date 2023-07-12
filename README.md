@@ -1,6 +1,6 @@
 # PAYWISE
 
-### PayWise revolutionizes the world of money transfers with cutting-edge technology, setting a new industry standard for seamless, secure, and lightning-fast transactions.
+PayWise revolutionizes the world of money transfers with cutting-edge technology, setting a new industry standard for seamless, secure, and lightning-fast transactions.
 
 
 ## Home
@@ -12,4 +12,5 @@
 ## Sign up
 ![sign-up](https://github.com/drinhxh/paywise/assets/94572149/9451b9ea-0b89-47a1-95fb-ded72ac75c0b)
 
+Never before seen project this level with Java Spring Boot and Angular 
 

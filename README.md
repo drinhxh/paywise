@@ -5,7 +5,7 @@ PayWise revolutionizes the world of money transfers with cutting-edge technology
 
 ## Home
 ![2023-07-12 23-24-27 (3)](https://github.com/drinhxh/paywise/assets/94572149/0173338d-6fd4-4375-a787-4b3337bc0032)
-
+ 
 ## Login
 ![login](https://github.com/drinhxh/paywise/assets/94572149/ff4f6db8-833f-402c-b9d1-85b85f74ab4a)
 

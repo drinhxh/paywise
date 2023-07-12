@@ -25,4 +25,9 @@ public interface UserDAO{
   List<FundTransfer> getSenderFundTransfers(Integer id);
   List<FundTransfer> getReceiverFundTransfers(Integer id);
   User getUserByBankAccount(String bankAcc);
+
+  // No two same usernames should be accepted
+  boolean validateUsername(String username);
+  boolean validateBank(String bankAccount);
+  boolean validateCard(String cardNumber);
 }

@@ -24,7 +24,24 @@ public class UserDAOImpl implements UserDAO{
   @Override
   @Transactional
   public User saveUser(User user) {
+
     if(user == null){
+      System.out.println("Can not save empty user!");
+      return null;
+    }
+
+    if(validateUsername(user.getUsername())){
+      System.out.println("[ERROR: USERNAME] This username is already taken. please user another one!");
+      return null;
+    }
+
+    if(validateBank(user.getBankAccount().getAccountNumber())){
+      System.out.println("[ERROR: BANK ACCOUNT] This bank account is already in use. Please use another one!");
+      return null;
+    }
+
+    if(validateCard(user.getCard().getCardNumber())){
+      System.out.println("[ERROR: CARD NUMBER] This card number is already in use. Please user another one!");
       return null;
     }
 
@@ -32,17 +49,17 @@ public class UserDAOImpl implements UserDAO{
     user.addRole(newUserRole);
 
     // encode password before saving
-//    String encodedPassword = Constants.BCRYPT + encodeBCryptEncode(user.getPassword());
-//    user.setPassword(encodedPassword);
+    // String encodedPassword = Constants.BCRYPT + encodeBCryptEncode(user.getPassword());
+    // user.setPassword(encodedPassword);
 
-    String noopPassword = "{noop}" + user.getPassword();
+    String noopPassword = Constants.NO_OP + user.getPassword();
     user.setPassword(noopPassword);
-    System.out.println("Trying to save user");
+
     entityManager.persist(user);
     System.out.println("[CREATED USER] New user with id: " + user.getId());
     System.out.println("[CREATED USER] User: " + user);
 
-    return user; // TODO : more checks
+    return user;
   }
 
   @Override
@@ -54,10 +71,10 @@ public class UserDAOImpl implements UserDAO{
 
     System.out.println("[UPDATED USER] User with id: " + user.getId());
     System.out.println("[UPDATED USER] User: " + user);
-    // TODO : UPDATED PASSWORD BCRYPT IF UPDATED PASSWORD
+
     entityManager.merge(user);
 
-    return user; // TODO : more checks
+    return user;
   }
 
   @Override
@@ -77,7 +94,7 @@ public class UserDAOImpl implements UserDAO{
 
     System.out.println("[FOUND USER] User found with ID: " + foundUser.getId());
     System.out.println("[FOUND USER] User: " + foundUser);
-    return foundUser; // TODO : orElseThrow(() -> new UserNotFound("User not found"))
+    return foundUser;
   }
 
   @Override
@@ -153,7 +170,7 @@ public class UserDAOImpl implements UserDAO{
     if(user == null){
       System.out.println("NULL FROM UPDATE ROLE");
     }
-    user.addRole(roles); // TODO : assert
+    user.addRole(roles);
 
     System.out.println("[UPDATED ROLE] User got Role updated.");
     System.out.println("[UPDATED ROLE] User Role: " + user.getRoles());
@@ -200,6 +217,36 @@ public class UserDAOImpl implements UserDAO{
     System.out.println("[FOUND USER] User: " + foundUser);
 
     return foundUser;
+  }
+
+  @Override
+  public boolean validateUsername(String username) {
+    String queryString = "SELECT u.username FROM User u";
+    TypedQuery<String> query = entityManager.createQuery(queryString, String.class);
+
+    List<String> usernames = query.getResultList();
+
+    return usernames.contains(username);
+  }
+
+  @Override
+  public boolean validateBank(String bankAccount) {
+    String queryString = "SELECT u.bankAccount.accountNumber FROM User u";
+    TypedQuery<String> query = entityManager.createQuery(queryString, String.class);
+
+    List<String> bankAccounts = query.getResultList();
+
+    return bankAccounts.contains(bankAccount);
+  }
+
+  @Override
+  public boolean validateCard(String cardNumber) {
+    String queryString = "SELECT u.card.cardNumber FROM User u";
+    TypedQuery<String> query = entityManager.createQuery(queryString, String.class);
+
+    List<String> cards = query.getResultList();
+
+    return cards.contains(cardNumber);
   }
 }
 

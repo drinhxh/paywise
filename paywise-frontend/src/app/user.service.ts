@@ -40,7 +40,7 @@ export class UserService {
 
   public login(username: string, password: string): Observable<User> {
     const user = { username, password };
-    return this.http.post<User>(`${this.apiServerUrl}/home/login`, user);
+    return this.http.put<User>(`${this.apiServerUrl}/home/login`, user); // TODO : GET not PUT
   }
 
 

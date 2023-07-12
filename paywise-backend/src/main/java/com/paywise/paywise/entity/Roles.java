@@ -11,7 +11,7 @@ public class Roles {
   @Column(name = "id")
   private Integer id;
 
-  @ManyToOne(cascade = CascadeType.ALL) // TODO : all?
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "user_id")
   private User user_role;
 

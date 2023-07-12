@@ -57,7 +57,7 @@ public class UserController {
     return new ResponseEntity<>(receiverTransfers, HttpStatus.OK);
   }
 
-  @PostMapping("/users/login") // TODO : not working, keep getting 403 even though did .permitAll() on security
+  @GetMapping("/users/login") // TODO : not working, keep getting 403 even though did .permitAll() on security
   public ResponseEntity<User> loginUser(@RequestBody User user) {
     String enteredPassword = user.getPassword();
 
@@ -114,6 +114,7 @@ public class UserController {
     User newUser = userDAO.saveUser(user);
 
     if(newUser == null){
+      System.out.println("[ERROR: ADD USER] Can not save user, BAD REQUEST");
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
@@ -128,7 +129,7 @@ public class UserController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    return new ResponseEntity<>(user, HttpStatus.OK); // TODO : HttpStatus.FOUND ?
+    return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
   @GetMapping("/users/find/{username}")

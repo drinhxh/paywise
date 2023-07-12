@@ -21,9 +21,9 @@ public class FundTransfer {
   private String destinationAccountNumber;
 
   @Column(name = "date_time")
-  private String dateTime; // TODO : fix potential error
+  private String dateTime;
 
-  @ManyToOne(cascade = CascadeType.ALL) // TODO : all?
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "user_sender_id")
   private User user_sender;
 

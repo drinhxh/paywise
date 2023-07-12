@@ -1,6 +1,8 @@
 package com.paywise.paywise.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.paywise.paywise.exception.BankException;
+import com.paywise.paywise.exception.CardException;
 import jakarta.persistence.*;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Table;
@@ -35,19 +37,19 @@ public class User {
 
   @JsonIgnore
   @OneToMany(mappedBy = "user_sender",
-             cascade = CascadeType.ALL,  // TODO : all?
+             cascade = CascadeType.ALL,
              fetch = FetchType.EAGER)
   private List<FundTransfer> senderFundTransfers;
 
   @JsonIgnore
   @OneToMany(mappedBy = "user_receiver",
-             cascade = CascadeType.ALL,  // TODO : all?
+             cascade = CascadeType.ALL,
              fetch = FetchType.EAGER)
   private List<FundTransfer> receiverFundTransfers;
 
   @JsonIgnore
   @OneToMany(mappedBy = "user_role",
-             cascade = CascadeType.ALL,  // TODO : all?
+             cascade = CascadeType.ALL,
              fetch = FetchType.EAGER)
   private List<Roles> roles;
 
@@ -107,6 +109,21 @@ public class User {
   }
 
   public void setBankAccount(BankAccount bankAccount) {
+    if(bankAccount.getAccountNumber() == null ||
+       bankAccount.getAccountNumber().trim().isEmpty()){
+      throw new BankException("Bank account number cannot be empty!");
+    }
+
+    if(bankAccount.getBankName() == null ||
+       bankAccount.getBankName().trim().isEmpty()){
+      throw new BankException("Bank account name cannot be empty!");
+    }
+
+    if(bankAccount.getBalance() == null ||
+       bankAccount.getBalance() < 0){
+      throw new BankException("Bank balance cannot be less than 0!");
+    }
+
     this.bankAccount = bankAccount;
   }
 
@@ -115,6 +132,22 @@ public class User {
   }
 
   public void setCard(Card card) {
+    if(card.getCardNumber() == null || card.getCardNumber().trim().isEmpty()){
+      throw new CardException("Card number cannot be empty!");
+    }
+
+    if(card.getCardHolder() == null || card.getCardHolder().trim().isEmpty()){
+      throw new CardException("Card name holder cannot be empty!");
+    }
+
+    if(card.getExpiration() == null || card.getExpiration().trim().isEmpty()){
+      throw new CardException("Card expiration date cannot be empty!");
+    }
+
+    if(card.getSecurityCode() == null || card.getSecurityCode().trim().isEmpty()){
+      throw new CardException("Card security code cannot be empty");
+    }
+
     this.card = card;
   }
 
@@ -164,7 +197,7 @@ public class User {
     }
 
     roles.add(role);
-    role.setUserRole(this); /// TODO : assert
+    role.setUserRole(this);
   }
 
   public List<Roles> getRoles() {

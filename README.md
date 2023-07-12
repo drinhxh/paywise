@@ -7,4 +7,4 @@
 ![sign-up](https://github.com/drinhxh/paywise/assets/94572149/9451b9ea-0b89-47a1-95fb-ded72ac75c0b)
 
 # Home
-https://github.com/drinhxh/paywise/assets/94572149/04ff0739-e84c-4c0c-a536-99213fe282bc
+![2023-07-12 23-24-27 (3)](https://github.com/drinhxh/paywise/assets/94572149/0173338d-6fd4-4375-a787-4b3337bc0032)

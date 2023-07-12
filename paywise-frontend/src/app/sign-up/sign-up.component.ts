@@ -32,7 +32,6 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  // const signUpBankComponentData = this.signUpBankComponent.getData();
 
 
 }

@@ -22,10 +22,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    // this.getUserByUsername('baba'); 
     this.getUserById(this.id);
-    // this.userService.transferMoney(1, "fake thug", 200.00);
-    // console.log("transferMoney from USERS");
   }
 
   public getUsers(): void {
@@ -64,7 +61,4 @@ export class UsersComponent implements OnInit {
       }
     );
   }
-
-
-
 }

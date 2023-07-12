@@ -1,4 +1,4 @@
-<!-- <app-moving-picture></app-moving-picture> -->
+<!-- FOR TESTING DATABASE PURPOSES ONLY -->
 <div class="text">
   <p>#8ecae6 k qelt, #219ebc k mshelt, #023047 teget, #ffb703 verdhe, #fb8500 portokallt</p>
 
@@ -11,14 +11,12 @@
   </div>
   
   <div *ngIf="userByUsername">
-    <!-- <div>========================</div> -->
     <div>{{userByUsername.firstName}}</div>
     <div>{{userByUsername.lastName}}</div>
     <div>{{userByUsername.bankAccount.balance}}</div>
   </div>
 
   <div *ngIf="userByUserId">
-    <!-- <div>========================</div> -->
     <div>{{userByUserId.firstName}}</div>
     <div>{{userByUserId.lastName}}</div>
     <div>{{userByUserId.bankAccount.balance}}</div>

@@ -235,9 +235,6 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-items: center; */
-  /* height:70vh; Optional: Set a height to center vertically */
-  /* color: aliceblue; */
 }
 
 

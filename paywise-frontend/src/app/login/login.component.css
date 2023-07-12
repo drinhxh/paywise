@@ -100,9 +100,6 @@ body {
   cursor: pointer;
 }
 
-/* #lgn{
-  text-align: center; 
-} */
 
 #lgn {
   display: flex;

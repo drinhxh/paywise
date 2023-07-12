@@ -50,9 +50,6 @@ export class SignUpSharedServiceComponent implements OnInit {
       (response: User) => {
         console.log("CREATED NEW USER");
         console.log(this.newUser);
-        
-        // Handle the response from the addUser() method
-        // For example, display a success message or navigate to another page
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
